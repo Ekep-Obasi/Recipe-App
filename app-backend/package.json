@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "nodemon ./bin/www"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
@@ -17,7 +17,10 @@
     "jsonwebtoken": "^9.0.0",
     "morgan": "~1.9.1",
     "mysql2": "^3.4.2",
+    "nodemon": "^2.0.22",
     "sequelize": "^6.32.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.3",
     "uuid": "^9.0.0"
   }
 }
