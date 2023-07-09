@@ -21,7 +21,7 @@ const getOneGlass = async (req, res) => {
 const createGlass = async (req, res) => {
   try {
     const newGlass = await Glass.create(req.body);
-    res.status(500).send(newGlass);
+    res.status(200).send(newGlass);
   } catch (err) {
     res.status(500).send(err);
   }
