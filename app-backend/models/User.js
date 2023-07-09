@@ -22,6 +22,11 @@ const User = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    role: DataTypes.STRING,
+    apiKey: {
+      type: DataTypes.STRING,
+      defaultValue: null,
+    },
   },
   {
     paranoid: true,
