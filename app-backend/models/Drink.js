@@ -15,9 +15,14 @@ const Drink = sequelize.define("drink", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  rating: {
+    type: DataTypes.INTEGER,
+    defaultValue: 0,
+  },
   imageUrl: DataTypes.STRING,
   recipe: DataTypes.STRING,
   isAlcoholic: DataTypes.BOOLEAN,
+  apiKey: DataTypes.STRING,
 });
 
 module.exports = Drink;
