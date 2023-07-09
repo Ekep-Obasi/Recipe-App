@@ -8,13 +8,13 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-async function main(recieverAddress, getMarkUp) {
+async function main(recieverAddress, html) {
   const info = await transporter.sendMail({
     from: '"EKep Obasi 👻" <arreyettaekep@gmail.com>',
     to: recieverAddress,
     subject: "Welcome to Tastie - here's your API key",
-    text: "Hi, Keep up the good work, great job!",
-    html: getMarkUp(),
+    text: "Ready to Learn new Recipes?!",
+    html: html,
   });
 
   console.log(`Message sent - OK - + ${info.messageId}`);
