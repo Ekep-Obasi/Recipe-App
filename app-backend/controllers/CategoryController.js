@@ -22,7 +22,7 @@ const getOneCategory = async (req, res) => {
 const createCategory = async (req, res) => {
   try {
     const newCategory = await Category.create(req.body);
-    res.status(500).send(newCategory);
+    res.status(200).send(newCategory);
   } catch (err) {
     res.status(500).send(err);
   }

@@ -1,4 +1,6 @@
 const User = require("../models/User");
+const bcrypt = require("bcrypt");
+const { v4 } = require("uuid");
 
 const getAllUsers = async (req, res) => {
   try {
@@ -20,17 +22,24 @@ const getOneUser = async (req, res) => {
 
 const createUser = async (req, res) => {
   try {
-    const newUser = await User.create(req.body);
-    res.status(500).send(newUser);
+    const { password } = req.body;
+    bcrypt.hash(password, +process.env.SALT_ROUNDS).then(async (hash) => {
+      const newUser = await User.create({
+        ...req.body,
+        password: hash,
+        apiKey: v4(),
+      });
+      res.status(200).send(newUser);
+    });
   } catch (err) {
     res.status(500).send(err);
   }
 };
 
 const putUser = async (req, res) => {
-  const { name, description } = req.body;
+  const { name, email, password } = req.body;
   try {
-    if (name && description) {
+    if (name && email && password) {
       await User.update(req.body, {
         where: { id: req.params.id },
       });

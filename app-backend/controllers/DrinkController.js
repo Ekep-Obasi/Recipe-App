@@ -21,7 +21,7 @@ const getOneDrink = async (req, res) => {
 const createDrink = async (req, res) => {
   try {
     const newDrink = await Drink.create(req.body);
-    res.status(500).send(newDrink);
+    res.status(200).send(newDrink);
   } catch (err) {
     res.status(500).send(err);
   }
@@ -71,3 +71,4 @@ module.exports = {
   patchDrink,
   deleteDrink,
 };
+

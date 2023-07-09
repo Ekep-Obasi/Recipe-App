@@ -23,7 +23,7 @@ const getOneIngredient = async (req, res) => {
 const createIngredient = async (req, res) => {
   try {
     const newIngredient = await Ingredient.create(req.body);
-    res.status(500).send(newIngredient);
+    res.status(200).send(newIngredient);
   } catch (err) {
     res.status(500).send(err);
   }
