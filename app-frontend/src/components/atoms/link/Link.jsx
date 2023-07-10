@@ -1,8 +1,10 @@
 import styled from "@emotion/styled";
 import React from "react";
+import { Link as RouterLink } from "react-router-dom";
 
-const StyledLink = styled.div`
+const StyledLink = styled.span`
   font-weight: 550;
+
   cursor: pointer;
   ${(props) => {
     if (props.styles.variance === "danger") {
@@ -14,11 +16,11 @@ const StyledLink = styled.div`
   ${(props) => props.styles.sx}
 `;
 
-const Link = ({ reference, text, sx, variance }) => {
+const Link = ({ to, text, sx, variance }) => {
   return (
-    <StyledLink styles={{ sx, variance }} href={reference}>
-      {text}
-    </StyledLink>
+    <RouterLink style={{ textDecoration: "none" }} to={to}>
+      <StyledLink styles={{ sx, variance }}>{text}</StyledLink>
+    </RouterLink>
   );
 };
 
