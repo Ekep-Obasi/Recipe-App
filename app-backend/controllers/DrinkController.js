@@ -1,8 +1,9 @@
 const Drink = require("../models/Drink");
+const User = require("../models/User");
 
 const getAllDrinks = async (req, res) => {
   try {
-    const drinks = await Drink.findAll();
+    const drinks = await Drink.findAll({ include: [{ model: User }] });
     res.send(drinks);
   } catch (err) {
     res.status(500).send(err);
@@ -71,4 +72,3 @@ module.exports = {
   patchDrink,
   deleteDrink,
 };
-
