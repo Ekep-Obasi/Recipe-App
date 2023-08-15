@@ -3,3 +3,5 @@ A full-fledge drink recipe app built with react in the front-end and node js & E
 Users can Create, Read, Delete and Update drinks recipes
 I documented my API with swagger 
 ## run code
+
+`npm install`
