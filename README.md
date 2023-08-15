@@ -4,4 +4,4 @@ Users can Create, Read, Delete and Update drinks recipes
 I documented my API with swagger 
 ## run code
 
-```npm install```
+````npm install````
