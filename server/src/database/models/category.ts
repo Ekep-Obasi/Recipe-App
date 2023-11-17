@@ -7,20 +7,30 @@ import {
   DeletedAt,
   PrimaryKey,
   AutoIncrement,
+  DataType,
+  BelongsToMany,
 } from "sequelize-typescript";
+import Drink from "./drink";
+import DrinkCategory from "./drink-category";
 
-@Table
+@Table({
+  tableName: "categories",
+  timestamps: true,
+})
 class Category extends Model {
   @PrimaryKey
   @AutoIncrement
-  @Column
+  @Column(DataType.INTEGER)
   id: number;
 
-  @Column
+  @Column(DataType.CHAR(255))
   name: string;
 
-  @Column
-  email: string;
+  @Column(DataType.TEXT)
+  description: string;
+
+  @BelongsToMany(() => Drink, () => DrinkCategory)
+  drinks: Drink[];
 
   @CreatedAt
   createdAt: Date;

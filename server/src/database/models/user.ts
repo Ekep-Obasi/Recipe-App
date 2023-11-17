@@ -15,30 +15,36 @@ import {
 import Drink from "./drink";
 import { UserRoles, emailRegex, phoneNumberRegex } from "../../constants";
 
-@Table
+@Table({
+  tableName: "users",
+  timestamps: true,
+})
 class User extends Model {
   @PrimaryKey
   @AutoIncrement
-  @Column
+  @Column(DataType.INTEGER)
   id: number;
 
-  @Column
+  @Column(DataType.CHAR(255))
   firstName: string;
 
-  @Column
+  @Column(DataType.CHAR(255))
   lastName: string;
 
   @Is(emailRegex)
-  @Column
   @Unique
+  @Column(DataType.CHAR(255))
   email: string;
 
-  @Column
+  @Column(DataType.CHAR(255))
   password: string;
 
   @Is(phoneNumberRegex)
-  @Column
+  @Column(DataType.CHAR(255))
   phoneNumber: string;
+
+  @Column(DataType.CHAR(255))
+  apiKey: string;
 
   @Column(DataType.ENUM({ values: UserRoles }))
   role: string;

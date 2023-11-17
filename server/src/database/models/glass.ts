@@ -11,12 +11,18 @@ import {
 } from "sequelize-typescript";
 import { GlassSizes } from "../../constants";
 
-@Table
+@Table({
+  tableName: "glasses",
+  timestamps: true,
+})
 class Glass extends Model {
   @PrimaryKey
   @AutoIncrement
-  @Column
+  @Column(DataType.INTEGER)
   id: number;
+
+  @Column(DataType.CHAR(100))
+  imgURL: string;
 
   @Column(DataType.ENUM({ values: GlassSizes }))
   size: string;

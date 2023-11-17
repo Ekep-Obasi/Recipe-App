@@ -8,20 +8,29 @@ import {
   PrimaryKey,
   AutoIncrement,
   DataType,
+  BelongsToMany,
 } from "sequelize-typescript";
+import Drink from "./drink";
+import DrinkIngredient from "./drink-ingredient";
 
-@Table
+@Table({
+  tableName: "ingredients",
+  timestamps: true,
+})
 class Ingredient extends Model {
   @PrimaryKey
   @AutoIncrement
-  @Column
+  @Column(DataType.INTEGER)
   id: number;
 
-  @Column
+  @Column(DataType.CHAR(255))
   name: string;
 
-  @Column
+  @Column(DataType.TEXT)
   decription: string;
+
+  @BelongsToMany(() => Drink, () => DrinkIngredient)
+  drinks: Drink[];
 
   @CreatedAt
   createdAt: Date;
