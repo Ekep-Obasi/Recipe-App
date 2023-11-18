@@ -1,5 +1,5 @@
-import { GlassSize, UserRole } from "../types";
 import dotEnv from "dotenv";
+import { UserRole } from "../domains/user";
 
 dotEnv.config();
 
@@ -21,8 +21,7 @@ export const UserRoles: UserRole[] = ["GUEST_USER", "ADMIN_USER"];
 export const GlassSizes = ["small", "meduim", "large"];
 
 // Regex
-export const emailRegex =
-  /^[a-zA-Z0-9.! #$%&'*+/=? ^_`{|}~-]+@[a-zA-Z0-9-]+(?:\. [a-zA-Z0-9-]+)*$/;
+export const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 export const phoneNumberRegex = RegExp(/^6(5|7|8|9)[0-9]{7}$/);
 
 // webtokens
