@@ -7,5 +7,3 @@ export declare global {
     }
   }
 }
-
-
