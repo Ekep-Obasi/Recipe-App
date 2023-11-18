@@ -42,11 +42,11 @@ class Drink extends Model {
   @Column(DataType.TEXT)
   recipe: string;
 
+  @Column(DataType.INTEGER)
+  likes: number;
+
   @Column(DataType.BOOLEAN)
   isAlcoholic: boolean;
-
-  @Column(DataType.CHAR(100))
-  price: string;
 
   @ForeignKey(() => User)
   @Column(DataType.INTEGER)

@@ -33,19 +33,19 @@ const sequelize = new Sequelize({
       User,
     ]);
 
-    await sequelize.sync({ force: true });
-    console.log("Created all tables succesfully ✔")
+    await sequelize.sync();
+    console.log("Created all tables succesfully                  ✅");
   } catch (err) {
-    throw new Error("An error occured while creating tables ❌");
+    throw console.error("An error occured while creating tables  ❌");
   }
 })();
 
 export const dbTest = async () => {
   try {
     await sequelize.authenticate();
-    console.log("DB Connection has been established successfully ✔");
+    console.log("DB Connection has been established successfully ✅");
   } catch (error) {
-    console.error("Unable to connect to the database ❌");
+    console.error("Unable to connect to the database             ❌");
   }
 };
 

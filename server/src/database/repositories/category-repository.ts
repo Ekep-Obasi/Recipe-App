@@ -1,68 +1,68 @@
 import CategoryModel from "../models/category";
-import { Category } from "../../types";
 import { ICreateCategory } from "../../dto/category-dto";
+import { APIError } from "../../helpers/errors/app-error";
+import { Category } from "../../domains/category";
 
 class CategoryRepository {
-  private readonly _model = CategoryModel;
+  private readonly _Model = CategoryModel;
 
-  async CreateCategory({ name, description }: ICreateCategory) {
+  async CreateCategory(payload: ICreateCategory) {
     try {
-      const category = await this._model.create({ name, description });
-      console.log(category);
+      const category = await this._Model.create({ ...payload } as any);
       return category;
     } catch {
-      throw new Error("An internal Error occured");
+      throw new APIError();
     }
   }
 
   async GetAllCategories() {
     try {
-      const categories = await this._model.findAll();
+      const categories = await this._Model.findAll();
       return categories;
     } catch {
-      throw new Error("An internal Error occured");
+      throw new APIError();
     }
   }
 
   async FindOneCategory(id: string) {
     try {
-      const categories = await this._model.findOne({ where: { id } });
+      const categories = await this._Model.findOne({ where: { id } });
       return categories;
     } catch {
-      throw new Error("An internal Error occured");
+      throw new APIError();
     }
   }
 
   async UpdateCategory({ id, name, description }: Category) {
     try {
-      const catgory = await this._model.update(
+      const catgory = await this._Model.update(
         { name, description },
         { where: { id } }
       );
       return catgory;
     } catch {
-      throw new Error("An internal Error occured");
+      throw new APIError();
     }
   }
 
   async PatchCategory({ id, name, description }: Partial<Category>) {
     try {
-      const catgory = await this._model.update(
+      const catgory = await this._Model.update(
         { name, description },
         { where: { id } }
       );
       return catgory;
     } catch {
-      throw new Error("An internal Error occured");
+      throw new APIError();
     }
   }
 
   async DeleteCategory(id: string) {
     try {
-      const category = await this._model.destroy({ where: { id } });
+      const category = await this._Model.destroy({ where: { id } });
       return category;
     } catch {
-      throw new Error("An internal Error occured");
+      throw new APIError();
     }
   }
 }

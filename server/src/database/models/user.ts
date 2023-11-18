@@ -46,6 +46,9 @@ class User extends Model {
   @Column(DataType.CHAR(255))
   apiKey: string;
 
+  @Column(DataType.CHAR(50))
+  salt: string;
+
   @Column(DataType.ENUM({ values: UserRoles }))
   role: string;
 
