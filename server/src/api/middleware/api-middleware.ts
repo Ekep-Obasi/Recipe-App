@@ -1,6 +1,15 @@
 import { NextFunction, Request, Response } from "express";
 import { APIError } from "../../helpers/errors/app-error";
 import UserRepository from "../../database/repositories/user-repository";
+import { ILoginUserPayload } from "../../dto/user-dto";
+
+declare global {
+  namespace Express {
+    interface Request {
+      user: ILoginUserPayload;
+    }
+  }
+}
 
 async function ApiMiddleware(req: Request, res: Response, next: NextFunction) {
   const apiKey = req.header("x-api-key");
