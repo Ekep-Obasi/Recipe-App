@@ -1,9 +1,9 @@
-import winston from "winston";
+import winston, { transports } from "winston";
 import { AppError } from "./app-error";
 import { Request, Response, NextFunction } from "express";
 
 const LogErrors = winston.createLogger({
-  transports: [new winston.transports.File({ filename: "app-error.log" })],
+  transports: [new transports.File({ filename: "app-error.log" })],
 });
 
 class ErrorLogger {
@@ -46,7 +46,7 @@ const ErrorHandler = async (
 
   await errorLogger.logError(err);
   if (errorLogger.isAppError(err)) {
-    if (err.stack && process.env.NODE_DEV === "dev") {
+    if (err.stack) {
       return res.status(err.statusCode).json({
         erroCode: err.statusCode,
         errorType: err.errorType,
@@ -62,13 +62,16 @@ const ErrorHandler = async (
         message: err.message,
       },
     });
-  } else {
-    console.error("Unrecoverable error:", err);
-    process.exit(1);
   }
 
   next();
-  res.send({ something: "" });
+  return res.send({
+    erroCode: 500,
+    errorType: "INTERNAL_ERROR",
+    error: {
+      message: err.message,
+    },
+  });
 };
 
 export default ErrorHandler;
