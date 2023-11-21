@@ -18,7 +18,7 @@ export const DB_HOST = process.env.DB_HOST as string;
 export const UserRoles: UserRole[] = ["GUEST_USER", "ADMIN_USER"];
 
 // glass sizes
-export const GlassSizes = ["small", "meduim", "large"];
+export const GlassSizes = ["small", "medium", "large"];
 
 // Regex
 export const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
