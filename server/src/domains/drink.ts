@@ -7,11 +7,11 @@ export type Drink = {
   name: string;
   description: string;
   imageURL: string;
-  category: Category[];
+  categories: Category[];
   recipe: string;
-  ingredient: Ingredient[];
+  ingredients: Ingredient[];
   glasses: Glass[];
-  userID: number;
+  userId: number;
   isAlcoholic: boolean;
   price: string;
   likes: number;
