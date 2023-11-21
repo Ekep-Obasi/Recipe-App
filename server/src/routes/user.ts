@@ -24,10 +24,10 @@ router.use(RoleMiddleware);
 router.get("/", userController.getAllUsers.bind(userController));
 router.get("/:id", userController.getUserById.bind(userController));
 
-
 router.use(AuthMiddleware);
 router.use(RoleMiddleware);
 router.use(ApiMiddleware);
-router.get("/list-drinks/:id", userController.listUserDrinks.bind(userController));
+router.get("/admin/list-drinks", userController.listUserDrinks.bind(userController));
+
 
 export { router as userRouter };
