@@ -14,7 +14,7 @@ interface IUserController {
 }
 
 class UserController implements IUserController {
-  readonly _service: UserService;
+  readonly _service;
 
   constructor() {
     this._service = new UserService();
@@ -53,7 +53,12 @@ class UserController implements IUserController {
     const payload = <IEditProfilePayload>req.body;
 
     if (!id) {
-      throw new APIError(400, "BAD_REQUEST", "url id param required");
+      const err = new APIError(
+        400,
+        "BAD_REQUEST",
+        "invalid url param id required"
+      );
+      next(err);
     }
 
     try {
@@ -72,7 +77,12 @@ class UserController implements IUserController {
     const id = +req.params.id;
 
     if (!id) {
-      throw new APIError(400, "BAD_REQUEST", "url id param required");
+      const err = new APIError(
+        400,
+        "BAD_REQUEST",
+        "invalid url param id required"
+      );
+      next(err);
     }
 
     try {
@@ -94,7 +104,12 @@ class UserController implements IUserController {
       const id = +req.params.id;
 
       if (!id) {
-        throw new APIError(400, "BAD_REQUEST", "url id param required");
+        const err = new APIError(
+          400,
+          "BAD_REQUEST",
+          "invalid url param id required"
+        );
+        next(err);
       }
 
       const user = await this._service.ResetUserProfile(id, payload);
@@ -155,7 +170,12 @@ class UserController implements IUserController {
     const id = +req.params.id;
 
     if (!id) {
-      throw new APIError(400, "BAD_REQUEST", "url id param required");
+      const err = new APIError(
+        400,
+        "BAD_REQUEST",
+        "invalid url param id required"
+      );
+      next(err);
     }
 
     try {
@@ -171,14 +191,19 @@ class UserController implements IUserController {
   }
 
   async listUserDrinks(req: Request, res: Response, next: NextFunction) {
-    const id = +req.params.id;
+    const { email } = req.user;
 
-    if (!id) {
-      throw new APIError(400, "BAD_REQUEST", "url id param required");
+    const existingUser = await this._service._repo.FindOneUser({
+      email,
+    });
+
+    if (!existingUser && existingUser === null) {
+      const err = new APIError();
+      return next(err);
     }
 
     try {
-      const user = await this._service.ListUserDrinks(id);
+      const user = await this._service.ListUserDrinks(existingUser.id);
 
       res.send({
         statusCode: 200,
