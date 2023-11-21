@@ -34,7 +34,7 @@ class Drink extends Model {
   name: string;
 
   @Column(DataType.TEXT)
-  decription: string;
+  description: string;
 
   @Column(DataType.CHAR(255))
   imageURL: string;

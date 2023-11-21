@@ -27,7 +27,7 @@ class Ingredient extends Model {
   name: string;
 
   @Column(DataType.TEXT)
-  decription: string;
+  description: string;
 
   @BelongsToMany(() => Drink, () => DrinkIngredient)
   drinks: Drink[];

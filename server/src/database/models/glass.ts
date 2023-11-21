@@ -21,11 +21,11 @@ class Glass extends Model {
   @Column(DataType.INTEGER)
   id: number;
 
-  @Column(DataType.CHAR(100))
-  imgURL: string;
-
   @Column(DataType.ENUM({ values: GlassSizes }))
   size: string;
+
+  @Column(DataType.CHAR(100))
+  description: string;
 
   @CreatedAt
   createdAt: Date;
