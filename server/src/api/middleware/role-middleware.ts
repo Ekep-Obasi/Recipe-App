@@ -17,11 +17,9 @@ async function RoleMiddleware(req: Request, res: Response, next: NextFunction) {
   if (savedUser && savedUser.role === "ADMIN_USER") {
     next();
   } else {
-    res.send({
-      statusCode: 404,
-      data: [],
-      error: "Access forbidden",
-    });
+    const err = new APIError(403, "UNAUTHORIZED", "Access to forbidden");
+
+    next(err);
   }
 }
 
