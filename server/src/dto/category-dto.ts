@@ -1,15 +1,7 @@
-export interface ICreateCategory {
-  name: string;
-  description: string;
-}
+import { Category } from "../domains/category";
 
-export interface IGetCategoryByID {
-  id: string;
-}
+export type ICreateCategory = Omit<Category, "id">;
 
-export interface IUpdateCategory {
-  name: string;
-  description: string;
-}
+export type IUpdateCategory = Required<ICreateCategory>;
 
-export type IPatchCategory = Partial<IUpdateCategory>
+export type IPatchCategory = Partial<IUpdateCategory>;
