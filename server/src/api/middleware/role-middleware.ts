@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import UserRepository from "../../database/repositories/user-repository";
 import { APIError } from "../../helpers/errors/app-error";
+import UserRepository from "../../database/repositories/user-repository";
 
 async function RoleMiddleware(req: Request, res: Response, next: NextFunction) {
   const user = req.user;
@@ -10,10 +10,11 @@ async function RoleMiddleware(req: Request, res: Response, next: NextFunction) {
   const savedUser = await repo.FindOneUser({ email: user.email });
 
   if (!savedUser) {
-    throw new APIError();
+    const err = new APIError();
+    next(err);
   }
 
-  if (savedUser.role === "ADMIN_USER") {
+  if (savedUser && savedUser.role === "ADMIN_USER") {
     next();
   } else {
     res.send({

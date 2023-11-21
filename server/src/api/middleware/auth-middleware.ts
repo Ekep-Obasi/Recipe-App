@@ -5,20 +5,22 @@ import { APIError } from "../../helpers/errors/app-error";
 async function AuthMiddleware(req: Request, res: Response, next: NextFunction) {
   const authorization = req.get("Authorization");
 
-  const token = authorization?.split(" ").pop();
+  const token = authorization?.split(" ").pop() as string;
 
   if (!token) {
-    throw new APIError(400, "BAD_REQUEST", "token is invalid");
+    const err = new APIError(400, "BAD_REQUEST", "token is invalid");
+    return next(err);
   }
 
   const user = await verifyTokenSignature(token);
 
   if (user) {
     req.user = user;
-    
+
     next();
   } else {
-    throw new APIError(403, "UNAUTHORIZED", "Access is forbidden");
+    const err = new APIError(403, "UNAUTHORIZED", "Access is forbidden");
+    next(err);
   }
 }
 
