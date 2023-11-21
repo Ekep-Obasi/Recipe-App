@@ -28,6 +28,8 @@ class DrinkController implements IDrinkController {
 
       const { email } = req.user;
 
+      const file = req.file;
+
       const user = await this._userService._repo.FindOneUser({ email });
 
       if (!user) {
@@ -37,6 +39,7 @@ class DrinkController implements IDrinkController {
 
       const drink = await this._service.CreateDrink({
         ...payload,
+        imageURL: file?.filename as string,
         userId: user?.id as number,
       });
 
