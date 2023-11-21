@@ -46,9 +46,9 @@ const ErrorHandler = async (
 
   await errorLogger.logError(err);
   if (errorLogger.isAppError(err)) {
-    if (err.stack) {
+    if (err.stack && process.env.NODE_DEV === 'dev') {
       return res.status(err.statusCode).json({
-        erroCode: err.statusCode,
+        errorCode: err.statusCode,
         errorType: err.errorType,
         error: {
           message: err.stack,
@@ -56,7 +56,7 @@ const ErrorHandler = async (
       });
     }
     return res.status(err.statusCode).json({
-      erroCode: err.statusCode,
+      errorCode: err.statusCode,
       errorType: err.errorType,
       error: {
         message: err.message,
@@ -66,7 +66,7 @@ const ErrorHandler = async (
 
   next();
   return res.send({
-    erroCode: 500,
+    errorCode: 500,
     errorType: "INTERNAL_ERROR",
     error: {
       message: err.message,
