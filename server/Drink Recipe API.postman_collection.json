@@ -1,0 +1,2545 @@
+{
+	"info": {
+		"_postman_id": "c94c7a68-6098-42c1-9c59-6d442ed5e7bd",
+		"name": "Drink Recipe API",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these request types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a variable called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Tests\" tab**\n\nTests help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/b5f280a7-4b09-48ec-857f-0a7ed99d7ef8/U2NyZWVuc2hvdCAyMDIzLTAzLTI3IGF0IDkuNDcuMjggUE0ucG5n\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n- Add more scripts in \"Tests\" to verify if the API works as expected and execute flows.\n    \n\n## ℹ️ Resources\n\n[Building requests](https://learning.postman.com/docs/sending-requests/requests/)  \n[Authorizing requests](https://learning.postman.com/docs/sending-requests/authorization/)  \n[Using variables](https://learning.postman.com/docs/sending-requests/variables/)  \n[Managing environments](https://learning.postman.com/docs/sending-requests/managing-environments/)  \n[Writing scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "25968149"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Sign Up User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"Shekinah\",\r\n  \"lastName\": \"Arrey-Etta\",\r\n  \"email\": \"shekinah@gmail.com\",\r\n  \"password\": \"test777\",\r\n  \"phoneNumber\": \"677931095\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}} {{PORT_NUMBER}}/user/signup"
+					},
+					"response": [
+						{
+							"name": "Sign Up User Test",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstName\": \"test\",\r\n  \"lastName\": \"Test lastName\",\r\n  \"email\": \"test@gmail.com\",\r\n  \"password\": \"test777\",\r\n  \"phoneNumber\": \"677931095\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BASE_URL}} {{PORT_NUMBER}}/user/signup"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "359"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"167-36l6+Qrkoam8bFdfXRz3fFnYEsU\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 23:02:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"id\": 3,\n        \"firstName\": \"Shekinah\",\n        \"lastName\": \"Arrey-Etta\",\n        \"email\": \"shekinah@gmail.com\",\n        \"password\": \"$2b$10$YEMfOq2Zkc.c0YiP71uCZ.ElEK0oXn8wEulladhZ3A/n93w2oH2HW\",\n        \"phoneNumber\": \"677931095\",\n        \"salt\": \"$2b$10$YEMfOq2Zkc.c0YiP71uCZ.\",\n        \"role\": \"GUEST_USER\",\n        \"apiKey\": \"\",\n        \"updatedAt\": \"2023-11-17T23:02:53.219Z\",\n        \"createdAt\": \"2023-11-17T23:02:53.219Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"shekinah@gmail.com\",\r\n  \"password\": \"test123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}} {{PORT_NUMBER}}/user/login"
+					},
+					"response": [
+						{
+							"name": "Login User Test",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"shekinah@gmail.com\",\r\n  \"password\": \"test777\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BASE_URL}} {{PORT_NUMBER}}/user/login"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "217"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d9-uQq+OuqiMxUjZt5doonlKeB4aYw\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Nov 2023 23:07:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"id\": 3,\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoZWtpbmFoQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoidGVzdDc3NyIsImlhdCI6MTcwMDI2MjQ3Nn0.5TpCjHOcuq3hzEpIa2BGi6s8NlHfTd6LchNPBAGCVLw\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Authorization}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"Schekinah\",\r\n  \"lastName\": \"Arrey-Etta\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}} {{PORT_NUMBER}}/user/edit/:id",
+							"host": [
+								"{{BASE_URL}} {{PORT_NUMBER}}"
+							],
+							"path": [
+								"user",
+								"edit",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit Profile Test",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstName\": \"Schekina\",\r\n  \"lastName\": \"Arrey-Etta\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BASE_URL}} {{PORT_NUMBER}}/user/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "380"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"17c-0zcm1RmyNQj5ExK2tGn3sJvtqIg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Nov 2023 00:30:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"id\": 1,\n        \"firstName\": \"Schekina\",\n        \"lastName\": \"Arrey-Etta\",\n        \"email\": \"arreyettekep@gmail.com\",\n        \"password\": \"$2b$10$F7.6sQSbvy/seHd0Ym78WuouAhlS4DdwCcWOtKSRxpGPZNAhx4pGe\",\n        \"phoneNumber\": \"671216801\",\n        \"apiKey\": \"\",\n        \"salt\": \"$2b$10$F7.6sQSbvy/seHd0Ym78Wu\",\n        \"role\": \"GUEST_USER\",\n        \"createdAt\": \"2023-11-17T22:32:54.000Z\",\n        \"updatedAt\": \"2023-11-18T00:30:46.000Z\",\n        \"deletedAt\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}} {{PORT_NUMBER}}/user/:id",
+							"host": [
+								"{{BASE_URL}} {{PORT_NUMBER}}"
+							],
+							"path": [
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete User Test",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{BASE_URL}} {{PORT_NUMBER}}/user/4"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-2M/GNgsZ6waPSYMswNix0cEJa7I\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Nov 2023 00:29:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": \"Operation Successful\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reset User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Authorization}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Sheckina\",\r\n    \"lastName\": \"Arrey\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}} {{PORT_NUMBER}}/user/3"
+					},
+					"response": [
+						{
+							"name": "Reset User Test",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"Shekina Egbe\",\r\n    \"lastName\": \"Arrey-Etta\",\r\n    \"phoneNumber\": \"671213849\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BASE_URL}} {{PORT_NUMBER}}/user/3"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "380"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"17c-4MW6iuK3jv4XjpsMwPg1NQsyDV8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Nov 2023 00:57:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"id\": 3,\n        \"firstName\": \"Shekina Egbe\",\n        \"lastName\": \"Arrey-Etta\",\n        \"email\": \"shekinah@gmail.com\",\n        \"password\": \"$2b$10$YEMfOq2Zkc.c0YiP71uCZ.ElEK0oXn8wEulladhZ3A/n93w2oH2HW\",\n        \"phoneNumber\": \"671213849\",\n        \"apiKey\": \"\",\n        \"salt\": \"$2b$10$YEMfOq2Zkc.c0YiP71uCZ.\",\n        \"role\": \"GUEST_USER\",\n        \"createdAt\": \"2023-11-17T23:02:53.000Z\",\n        \"updatedAt\": \"2023-11-18T00:57:40.000Z\",\n        \"deletedAt\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Forgot Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"arreyettashekina@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}} {{PORT_NUMBER}}/user/password-reset"
+					},
+					"response": [
+						{
+							"name": "Forgot Password Test",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"shekinah@gmail.com\",\r\n    \"password\": \"test123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BASE_URL}} {{PORT_NUMBER}}/user/password-reset"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "416"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a0-ilDXZoUD95z2OINUvVk6fCyyn74\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Nov 2023 03:12:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"id\": 3,\n        \"firstName\": \"Shekina Egbe\",\n        \"lastName\": \"Arrey-Etta\",\n        \"email\": \"shekinah@gmail.com\",\n        \"password\": \"$2b$10$9M62d1CjW844r2RAto.ijOWKsrYQC/OePDaY07VXPxKLvSLNLS5KW\",\n        \"phoneNumber\": \"671213849\",\n        \"apiKey\": \"21fd9f5c-0cb0-41f6-b9f9-8e47068349d3\",\n        \"salt\": \"$2b$10$9M62d1CjW844r2RAto.ijO\",\n        \"role\": \"ADMIN_USER\",\n        \"createdAt\": \"2023-11-17T23:02:53.000Z\",\n        \"updatedAt\": \"2023-11-18T03:12:35.000Z\",\n        \"deletedAt\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Subscribe for Api Key",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Authorization}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "{{BASE_URL}} {{PORT_NUMBER}}/user/subscribe"
+					},
+					"response": [
+						{
+							"name": "Subscribe for Api Key Test",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": "{{BASE_URL}} {{PORT_NUMBER}}/user/subscribe"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4b-1TSDmK9hT5oSyMZfXB2MgeBfUOc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Nov 2023 01:23:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"apiKey\": \"536b5e03-3e8a-4380-8153-976f48dd6ed4\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Authorization}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BASE_URL}} {{PORT_NUMBER}}/user"
+					},
+					"response": [
+						{
+							"name": "Get All Users Test",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{BASE_URL}} {{PORT_NUMBER}}/user"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1127"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"467-Hge4kEhXpyjRiMgAYil4vQJE41k\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Nov 2023 02:16:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"firstName\": \"Schekina\",\n            \"lastName\": \"Arrey-Etta\",\n            \"email\": \"arreyettekep@gmail.com\",\n            \"password\": \"$2b$10$F7.6sQSbvy/seHd0Ym78WuouAhlS4DdwCcWOtKSRxpGPZNAhx4pGe\",\n            \"phoneNumber\": \"671216801\",\n            \"apiKey\": \"\",\n            \"salt\": \"$2b$10$F7.6sQSbvy/seHd0Ym78Wu\",\n            \"role\": \"GUEST_USER\",\n            \"createdAt\": \"2023-11-17T22:32:54.000Z\",\n            \"updatedAt\": \"2023-11-18T00:30:46.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 2,\n            \"firstName\": \"Mandela\",\n            \"lastName\": \"Arrey-Etta\",\n            \"email\": \"mandelaarrey@gmail.com\",\n            \"password\": \"$2b$10$1GAlWeWKmPI42FBC0AeoEuzZOvJE.qBswvzmi4Km/ISd1QwKxfHgi\",\n            \"phoneNumber\": \"680573022\",\n            \"apiKey\": \"\",\n            \"salt\": \"$2b$10$1GAlWeWKmPI42FBC0AeoEu\",\n            \"role\": \"GUEST_USER\",\n            \"createdAt\": \"2023-11-17T22:49:00.000Z\",\n            \"updatedAt\": \"2023-11-17T22:49:00.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 3,\n            \"firstName\": \"Shekina Egbe\",\n            \"lastName\": \"Arrey-Etta\",\n            \"email\": \"shekinah@gmail.com\",\n            \"password\": \"$2b$10$YEMfOq2Zkc.c0YiP71uCZ.ElEK0oXn8wEulladhZ3A/n93w2oH2HW\",\n            \"phoneNumber\": \"671213849\",\n            \"apiKey\": \"21fd9f5c-0cb0-41f6-b9f9-8e47068349d3\",\n            \"salt\": \"$2b$10$YEMfOq2Zkc.c0YiP71uCZ.\",\n            \"role\": \"ADMIN_USER\",\n            \"createdAt\": \"2023-11-17T23:02:53.000Z\",\n            \"updatedAt\": \"2023-11-18T01:53:11.000Z\",\n            \"deletedAt\": null\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get User By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}} {{PORT_NUMBER}}/user/:id",
+							"host": [
+								"{{BASE_URL}} {{PORT_NUMBER}}"
+							],
+							"path": [
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get User By Id Test",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{BASE_URL}} {{PORT_NUMBER}}/user/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "380"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"17c-0zcm1RmyNQj5ExK2tGn3sJvtqIg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Nov 2023 02:15:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"id\": 1,\n        \"firstName\": \"Schekina\",\n        \"lastName\": \"Arrey-Etta\",\n        \"email\": \"arreyettekep@gmail.com\",\n        \"password\": \"$2b$10$F7.6sQSbvy/seHd0Ym78WuouAhlS4DdwCcWOtKSRxpGPZNAhx4pGe\",\n        \"phoneNumber\": \"671216801\",\n        \"apiKey\": \"\",\n        \"salt\": \"$2b$10$F7.6sQSbvy/seHd0Ym78Wu\",\n        \"role\": \"GUEST_USER\",\n        \"createdAt\": \"2023-11-17T22:32:54.000Z\",\n        \"updatedAt\": \"2023-11-18T00:30:46.000Z\",\n        \"deletedAt\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Become Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Authorization}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "{{BASE_URL}} {{PORT_NUMBER}}/user/upgrade-role"
+					},
+					"response": [
+						{
+							"name": "Become Admin Test",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": "{{BASE_URL}} {{PORT_NUMBER}}/user/upgrade-role"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "416"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a0-C8g+8i0X4ZxrPOAyZev67YKNRcU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Nov 2023 01:53:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"id\": 3,\n        \"firstName\": \"Shekina Egbe\",\n        \"lastName\": \"Arrey-Etta\",\n        \"email\": \"shekinah@gmail.com\",\n        \"password\": \"$2b$10$YEMfOq2Zkc.c0YiP71uCZ.ElEK0oXn8wEulladhZ3A/n93w2oH2HW\",\n        \"phoneNumber\": \"671213849\",\n        \"apiKey\": \"21fd9f5c-0cb0-41f6-b9f9-8e47068349d3\",\n        \"salt\": \"$2b$10$YEMfOq2Zkc.c0YiP71uCZ.\",\n        \"role\": \"ADMIN_USER\",\n        \"createdAt\": \"2023-11-17T23:02:53.000Z\",\n        \"updatedAt\": \"2023-11-18T01:53:11.000Z\",\n        \"deletedAt\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "List User's Drinks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Authorization}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}",
+								"type": "text"
+							}
+						],
+						"url": "{{BASE_URL}} {{PORT_NUMBER}}/user/list-drinks"
+					},
+					"response": [
+						{
+							"name": "List User's Drinks Test",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "{{x-api-key}}",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Authorization}}",
+										"type": "text"
+									}
+								],
+								"url": "{{BASE_URL}} {{PORT_NUMBER}}/user/list-drinks/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "392"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"188-Ppggugb3JWlpgxWHHZbYyiIUUj0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Nov 2023 02:41:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"id\": 1,\n        \"firstName\": \"Schekina\",\n        \"lastName\": \"Arrey-Etta\",\n        \"email\": \"arreyettekep@gmail.com\",\n        \"password\": \"$2b$10$F7.6sQSbvy/seHd0Ym78WuouAhlS4DdwCcWOtKSRxpGPZNAhx4pGe\",\n        \"phoneNumber\": \"671216801\",\n        \"apiKey\": \"\",\n        \"salt\": \"$2b$10$F7.6sQSbvy/seHd0Ym78Wu\",\n        \"role\": \"GUEST_USER\",\n        \"createdAt\": \"2023-11-17T22:32:54.000Z\",\n        \"updatedAt\": \"2023-11-18T00:30:46.000Z\",\n        \"deletedAt\": null,\n        \"drinks\": []\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Patch Category",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}} {{PORT_NUMBER}}/category/:id",
+							"host": [
+								"{{BASE_URL}} {{PORT_NUMBER}}"
+							],
+							"path": [
+								"category",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Selecetd Category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BASE_URL}} {{PORT_NUMBER}}/category/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Categories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `\r",
+									"<canvas id=\"myChart\" height=\"75\"></canvas>\r",
+									"\r",
+									"<script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js\"></script> \r",
+									"\r",
+									"<script>\r",
+									"    var ctx = document.getElementById(\"myChart\");\r",
+									"\r",
+									"    var myChart = new Chart(ctx, {\r",
+									"        type: \"bar\",\r",
+									"        data: {\r",
+									"            labels: [],\r",
+									"            datasets: [{\r",
+									"                data: [],\r",
+									"                \r",
+									"                // Change these colours to customize the chart\r",
+									"                backgroundColor: [\"#003f5c\", \"#58508d\", \"#bc5090\", \"#ff6361\", \"#ffa600\"],\r",
+									"            }]\r",
+									"        },\r",
+									"        options: {\r",
+									"            legend: { display: false },\r",
+									"            title: {\r",
+									"                display: true,\r",
+									"                text: 'Category Information'\r",
+									"            },\r",
+									"            scales: {\r",
+									"                xAxes: [{\r",
+									"                    display: true,\r",
+									"                    scaleLabel: {\r",
+									"                        display: true,\r",
+									"                        labelString: 'Property'\r",
+									"                    }\r",
+									"                }],\r",
+									"                yAxes: [{\r",
+									"                    display: true,\r",
+									"                    scaleLabel: {\r",
+									"                        display: true,\r",
+									"                        labelString: 'Value'\r",
+									"                    }\r",
+									"                }]\r",
+									"            }\r",
+									"        }\r",
+									"\r",
+									"    });\r",
+									"\r",
+									"    // Access the data passed to pm.visualizer.set() from the JavaScript\r",
+									"    // code of the Visualizer template\r",
+									"    pm.getData(function (err, value) {\r",
+									"        myChart.data.datasets[0].data = Object.values(value.response.data);\r",
+									"        myChart.data.labels = Object.keys(value.response.data);\r",
+									"        myChart.update();\r",
+									"    });\r",
+									"\r",
+									"</script>`;\r",
+									"function constructVisualizerPayload() {\r",
+									"  var res = pm.response.json();\r",
+									"\r",
+									"  return {response: res.data};\r",
+									"}\r",
+									"\r",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Alcholic\",\r\n    \"description\": \"alcoholic drinks contain alchol\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}} {{PORT_NUMBER}}/category"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BASE_URL}} {{PORT_NUMBER}}/category"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}} {{PORT_NUMBER}}/category/:id",
+							"host": [
+								"{{BASE_URL}} {{PORT_NUMBER}}"
+							],
+							"path": [
+								"category",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}} {{PORT_NUMBER}}/category/:id",
+							"host": [
+								"{{BASE_URL}} {{PORT_NUMBER}}"
+							],
+							"path": [
+								"category",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Category",
+					"request": {
+						"method": "PUT",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Drink",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}} {{PORT_NUMBER}}/:id",
+							"host": [
+								"{{BASE_URL}} {{PORT_NUMBER}}"
+							],
+							"path": [
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Drink",
+			"item": [
+				{
+					"name": "Create Drink",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Authorization}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Orange juice\",\r\n    \"description\": \"orange juice is made out of a natural well know fruit called orange\",\r\n    \"imageURL\": \"https://images/drinks-orange-juice.jpeg\",\r\n    \"recipe\": \"Squeeze a fresh orange \\n Blend the fibers\",\r\n    \"isAlcoholic\": false,\r\n    \"price\": \"100\",\r\n    \"likes\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}{{PORT_NUMBER}}/drink"
+					},
+					"response": [
+						{
+							"name": "Create Drink Test",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "{{x-api-key}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"tomato juice\",\r\n    \"decription\": \"tomato juice is made out of a natural well know fruit called tomato\",\r\n    \"imageURL\": \"https://images/drinks.jpeg\",\r\n    \"recipe\": \"Squeeze a fresh tomato \\n Blend the fibers\",\r\n    \"isAlcoholic\": false,\r\n    \"price\": \"250\",\r\n    \"likes\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BASE_URL}} {{PORT_NUMBER}}"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "352"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"160-6s9vMFDgUCdRAIZaK/2CUWUtPjI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Nov 2023 07:52:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"id\": 4,\n        \"name\": \"tomato juice\",\n        \"decription\": \"tomato juice is made out of a natural well know fruit called tomato\",\n        \"imageURL\": \"https://images/drinks.jpeg\",\n        \"recipe\": \"Squeeze a fresh tomato \\n Blend the fibers\",\n        \"isAlcoholic\": false,\n        \"likes\": 0,\n        \"userId\": 1,\n        \"updatedAt\": \"2023-11-18T07:52:14.287Z\",\n        \"createdAt\": \"2023-11-18T07:52:14.287Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Drink",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Authorization}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Orange juice\",\r\n    \"description\": \"orange juice is made out of a natural well know fruit called orange\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}} {{PORT_NUMBER}}/:id",
+							"host": [
+								"{{BASE_URL}} {{PORT_NUMBER}}"
+							],
+							"path": [
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Drink Test",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "{{x-api-key}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Babana juice 1\",\r\n    \"decription\": \"orange juice is made out of a natural well know fruit called orange\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BASE_URL}} {{PORT_NUMBER}}/3"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "417"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a1-YJnBPMtkXrlYFUOGrhI/Dr7HvMo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Nov 2023 07:48:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"id\": 3,\n        \"name\": \"Babana juice 1\",\n        \"decription\": \"orange juice is made out of a natural well know fruit called orange\",\n        \"imageURL\": \"https://images/drinks.jpeg\",\n        \"recipe\": \"Squeeze a fresh banana \\n Blend the fibers\",\n        \"likes\": 0,\n        \"isAlcoholic\": false,\n        \"userId\": 1,\n        \"createdAt\": \"2023-11-18T07:44:30.000Z\",\n        \"updatedAt\": \"2023-11-18T07:48:23.000Z\",\n        \"deletedAt\": null,\n        \"categories\": [],\n        \"ingredients\": [],\n        \"glasses\": []\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Like Drink",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Authorization}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}",
+								"type": "text"
+							}
+						],
+						"url": "{{BASE_URL}} {{PORT_NUMBER}}/like/1"
+					},
+					"response": [
+						{
+							"name": "Like Drink Test",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "{{x-api-key}}",
+										"type": "text"
+									}
+								],
+								"url": "{{BASE_URL}} {{PORT_NUMBER}}/like/3"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "417"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a1-WMRegG87okfbzBT3kkWTtBk4BlY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Nov 2023 07:49:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"id\": 3,\n        \"name\": \"Babana juice 1\",\n        \"decription\": \"orange juice is made out of a natural well know fruit called orange\",\n        \"imageURL\": \"https://images/drinks.jpeg\",\n        \"recipe\": \"Squeeze a fresh banana \\n Blend the fibers\",\n        \"likes\": 3,\n        \"isAlcoholic\": false,\n        \"userId\": 1,\n        \"createdAt\": \"2023-11-18T07:44:30.000Z\",\n        \"updatedAt\": \"2023-11-18T07:49:43.000Z\",\n        \"deletedAt\": null,\n        \"categories\": [],\n        \"ingredients\": [],\n        \"glasses\": []\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Reset Drink Data",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Authorization}}"
+							}
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Orange juice\",\r\n    \"decription\": \"orange juice is made out of a natural well know fruit called orange\",\r\n    \"imageURL\": \"https://images/drinks-orange-juice.jpeg\",\r\n    \"recipe\": \"Squeeze a fresh orange \\n Blend the fibers\",\r\n    \"isAlcoholic\": false,\r\n    \"price\": \"100\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}} {{PORT_NUMBER}}/drink/3"
+					},
+					"response": [
+						{
+							"name": "Reset Drink Data Test",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "{{x-api-key}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Orange juice\",\r\n    \"decription\": \"orange juice is made out of a natural well know fruit called orange\",\r\n    \"imageURL\": \"https://images/drinks-orange-juice.jpeg\",\r\n    \"recipe\": \"Squeeze a fresh orange \\n Blend the fibers\",\r\n    \"isAlcoholic\": false,\r\n    \"price\": \"100\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BASE_URL}} {{PORT_NUMBER}}/3"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "428"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1ac-ij0cKlNkUdruCXakzD9oEYnUJ20\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Nov 2023 08:12:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"id\": 3,\n        \"name\": \"Orange juice\",\n        \"decription\": \"orange juice is made out of a natural well know fruit called orange\",\n        \"imageURL\": \"https://images/drinks-orange-juice.jpeg\",\n        \"recipe\": \"Squeeze a fresh orange \\n Blend the fibers\",\n        \"likes\": 3,\n        \"isAlcoholic\": false,\n        \"userId\": 1,\n        \"createdAt\": \"2023-11-18T07:44:30.000Z\",\n        \"updatedAt\": \"2023-11-18T08:12:53.000Z\",\n        \"deletedAt\": null,\n        \"categories\": [],\n        \"ingredients\": [],\n        \"glasses\": []\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Selected Drink",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BASE_URL}}{{PORT_NUMBER}}/drink/2"
+					},
+					"response": [
+						{
+							"name": "Get Selected Drink Test",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{BASE_URL}} {{PORT_NUMBER}}/3"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "417"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a1-WMRegG87okfbzBT3kkWTtBk4BlY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Nov 2023 08:10:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"id\": 3,\n        \"name\": \"Babana juice 1\",\n        \"decription\": \"orange juice is made out of a natural well know fruit called orange\",\n        \"imageURL\": \"https://images/drinks.jpeg\",\n        \"recipe\": \"Squeeze a fresh banana \\n Blend the fibers\",\n        \"likes\": 3,\n        \"isAlcoholic\": false,\n        \"userId\": 1,\n        \"createdAt\": \"2023-11-18T07:44:30.000Z\",\n        \"updatedAt\": \"2023-11-18T07:49:43.000Z\",\n        \"deletedAt\": null,\n        \"categories\": [],\n        \"ingredients\": [],\n        \"glasses\": []\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Drinks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Authorization}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}",
+								"type": "text"
+							}
+						],
+						"url": "{{BASE_URL}}{{PORT_NUMBER}}/drink"
+					},
+					"response": [
+						{
+							"name": "Get All Drink Test",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "{{x-api-key}}",
+										"type": "text"
+									}
+								],
+								"url": "{{BASE_URL}} {{PORT_NUMBER}}"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "809"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"329-p2nmGfKlFa3s9Luo+QHiHjJUPIQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Nov 2023 08:09:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": [\n        {\n            \"id\": 3,\n            \"name\": \"Babana juice 1\",\n            \"decription\": \"orange juice is made out of a natural well know fruit called orange\",\n            \"imageURL\": \"https://images/drinks.jpeg\",\n            \"recipe\": \"Squeeze a fresh banana \\n Blend the fibers\",\n            \"likes\": 3,\n            \"isAlcoholic\": false,\n            \"userId\": 1,\n            \"createdAt\": \"2023-11-18T07:44:30.000Z\",\n            \"updatedAt\": \"2023-11-18T07:49:43.000Z\",\n            \"deletedAt\": null,\n            \"categories\": [],\n            \"ingredients\": [],\n            \"glasses\": []\n        },\n        {\n            \"id\": 4,\n            \"name\": \"tomato juice\",\n            \"decription\": \"tomato juice is made out of a natural well know fruit called tomato\",\n            \"imageURL\": \"https://images/drinks.jpeg\",\n            \"recipe\": \"Squeeze a fresh tomato \\n Blend the fibers\",\n            \"likes\": 0,\n            \"isAlcoholic\": false,\n            \"userId\": 1,\n            \"createdAt\": \"2023-11-18T07:52:14.000Z\",\n            \"updatedAt\": \"2023-11-18T07:52:14.000Z\",\n            \"deletedAt\": null,\n            \"categories\": [],\n            \"ingredients\": [],\n            \"glasses\": []\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Drink",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Authorization}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}",
+								"type": "text"
+							}
+						],
+						"url": "{{BASE_URL}} {{PORT_NUMBER}}/2"
+					},
+					"response": [
+						{
+							"name": "Delete Drink Test",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "{{x-api-key}}",
+										"type": "text"
+									}
+								],
+								"url": "{{BASE_URL}} {{PORT_NUMBER}}/2"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "60"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3c-FNnPn1vzketAri+OnI66Ov68E+w\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 18 Nov 2023 07:54:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"message\": \"operation successful\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Glass",
+			"item": [
+				{
+					"name": "Get All Glasses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BASE_URL}} {{PORT_NUMBER}}/glass"
+					},
+					"response": [
+						{
+							"name": "Get All Glasses Test",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "{{x-api-key}}",
+										"type": "text"
+									}
+								],
+								"url": "{{BASE_URL}}{{PORT_NUMBER}}/glass"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "546"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"222-9xG7I8HvwR8u9L0uSXnarkom5jg\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 21 Nov 2023 00:57:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"size\": \"small\",\n            \"description\": \"A clean small size transparent glass\",\n            \"createdAt\": \"2023-11-21T00:57:04.000Z\",\n            \"updatedAt\": \"2023-11-21T00:57:04.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 2,\n            \"size\": \"large\",\n            \"description\": \"A clean large size transparent glass\",\n            \"createdAt\": \"2023-11-21T00:57:22.000Z\",\n            \"updatedAt\": \"2023-11-21T00:57:22.000Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 3,\n            \"size\": \"medium\",\n            \"description\": \"A clean large medium transparent glass\",\n            \"createdAt\": \"2023-11-21T00:57:43.000Z\",\n            \"updatedAt\": \"2023-11-21T00:57:43.000Z\",\n            \"deletedAt\": null\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Glasses",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Authorization}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"size\": \"large\",\r\n  \"description\": \"A clean medium size transparent glass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}{{PORT_NUMBER}}/glass"
+					},
+					"response": [
+						{
+							"name": "Create Glasses Test",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "{{x-api-key}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"size\": \"large\",\r\n  \"description\": \"A clean medium size transparent glass\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BASE_URL}}{{PORT_NUMBER}}/glass"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "127"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7f-GMRD6tFRuaaQTgU0CYi5lblbzxs\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 20 Nov 2023 23:32:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"id\": 1,\n        \"size\": \"large\",\n        \"updatedAt\": \"2023-11-20T23:32:07.759Z\",\n        \"createdAt\": \"2023-11-20T23:32:07.759Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Glasses",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}} {{PORT_NUMBER}}/glass/:id",
+							"host": [
+								"{{BASE_URL}} {{PORT_NUMBER}}"
+							],
+							"path": [
+								"glass",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Glasses Test",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "{{x-api-key}}",
+										"type": "text"
+									}
+								],
+								"url": "{{BASE_URL}} {{PORT_NUMBER}}/glass/2"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-a3OkOnvxIKKCdlR1h6G92uX8Opk\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 21 Nov 2023 02:14:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"message\": \"operation occured succesfully\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Glasses",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}} {{PORT_NUMBER}}/glass/:id",
+							"host": [
+								"{{BASE_URL}} {{PORT_NUMBER}}"
+							],
+							"path": [
+								"glass",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Glasses Test",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "{{x-api-key}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"size\": \"large\",\r\n    \"description\": \"This a large glass, that is not too large but just okay\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BASE_URL}} {{PORT_NUMBER}}/glass/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "216"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d8-Hm63ZRawLAoD8aZudCpi4WNcG2s\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 21 Nov 2023 02:15:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"id\": 1,\n        \"size\": \"large\",\n        \"description\": \"This a large glass, that is not too large but just okay\",\n        \"createdAt\": \"2023-11-21T00:57:04.000Z\",\n        \"updatedAt\": \"2023-11-21T02:15:30.000Z\",\n        \"deletedAt\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Selected Glasses",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Authorization}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}",
+								"type": "text"
+							}
+						],
+						"url": "{{BASE_URL}} {{PORT_NUMBER}}/glass/1"
+					},
+					"response": [
+						{
+							"name": "Get Selected Glasses Test",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "{{x-api-key}}",
+										"type": "text"
+									}
+								],
+								"url": "{{BASE_URL}}{{PORT_NUMBER}}/glass/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "197"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c5-7JeJq0xjpiyfZQQM+lTX3fdenko\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 21 Nov 2023 01:18:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"id\": 1,\n        \"size\": \"small\",\n        \"description\": \"A clean small size transparent glass\",\n        \"createdAt\": \"2023-11-21T00:57:04.000Z\",\n        \"updatedAt\": \"2023-11-21T00:57:04.000Z\",\n        \"deletedAt\": null\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Ingredient",
+			"item": [
+				{
+					"name": "Get All Ingredients",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Authorization}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}",
+								"type": "text"
+							}
+						],
+						"url": "{{BASE_URL}}{{PORT_NUMBER}}/ingredient",
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": [
+						{
+							"name": "Get All Ingredients Test",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "{{x-api-key}}",
+										"type": "text"
+									}
+								],
+								"url": "{{BASE_URL}}{{PORT_NUMBER}}/ingredient"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "254"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"fe-0vXdktCCCe3hKJmuT09/HfMIeRE\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 21 Nov 2023 03:13:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Alcoholic drink\",\n            \"description\": \"An alcoholic drink is a nice drink that contains ethanol, very string\",\n            \"createdAt\": \"2023-11-21T03:11:28.000Z\",\n            \"updatedAt\": \"2023-11-21T03:13:11.000Z\",\n            \"deletedAt\": null,\n            \"drinks\": []\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Ingredient",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful PUT request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}{{PORT_NUMBER}}/ingredient/1",
+						"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
+					},
+					"response": [
+						{
+							"name": "Update Ingredient Test",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "{{x-api-key}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Alcoholic drink\",\n    \"description\": \"An alcoholic drink is a nice drink that contains ethanol, very string\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BASE_URL}}{{PORT_NUMBER}}/ingredient/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "240"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f0-NA0QqpG3JKgU9HVvQFo4/6XasfE\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 21 Nov 2023 03:13:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Alcoholic drink\",\n        \"description\": \"An alcoholic drink is a nice drink that contains ethanol, very string\",\n        \"createdAt\": \"2023-11-21T03:11:28.000Z\",\n        \"updatedAt\": \"2023-11-21T03:13:11.000Z\",\n        \"deletedAt\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Ingredient",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Authorization}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"alcoholic\",\n  \"description\": \"Very strong, contains ethanol\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}} {{PORT_NUMBER}}/ingredient",
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": [
+						{
+							"name": "Create Ingredient Test",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "{{x-api-key}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"alcoholic\",\n  \"description\": \"Very strong, contains ethanol\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BASE_URL}} {{PORT_NUMBER}}/ingredient"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "177"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b1-Qa2Kd67FFHa1DiwJLENnY6oMc2w\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 21 Nov 2023 03:11:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"alcoholic\",\n        \"description\": \"Very strong, contains ethanol\",\n        \"updatedAt\": \"2023-11-21T03:11:28.919Z\",\n        \"createdAt\": \"2023-11-21T03:11:28.919Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Ingredient",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful DELETE request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Authorization}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}{{PORT_NUMBER}}/ingredient/1",
+						"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+					},
+					"response": [
+						{
+							"name": "Delete Ingredient Test",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "{{x-api-key}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{BASE_URL}}{{PORT_NUMBER}}/ingredient/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-a3OkOnvxIKKCdlR1h6G92uX8Opk\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 21 Nov 2023 03:15:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"message\": \"operation occured succesfully\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Selected Ingredient",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{Authorization}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}",
+								"type": "text"
+							}
+						],
+						"url": "{{BASE_URL}} {{PORT_NUMBER}}/ingredient/1"
+					},
+					"response": [
+						{
+							"name": "Get Selected Ingredient Test",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "{{x-api-key}}",
+										"type": "text"
+									}
+								],
+								"url": "{{BASE_URL}} {{PORT_NUMBER}}/ingredient/1"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "240"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f0-NA0QqpG3JKgU9HVvQFo4/6XasfE\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 21 Nov 2023 03:14:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Alcoholic drink\",\n        \"description\": \"An alcoholic drink is a nice drink that contains ethanol, very string\",\n        \"createdAt\": \"2023-11-21T03:11:28.000Z\",\n        \"updatedAt\": \"2023-11-21T03:13:11.000Z\",\n        \"deletedAt\": null\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}
