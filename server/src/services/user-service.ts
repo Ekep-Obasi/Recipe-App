@@ -64,7 +64,7 @@ class UserService implements IUserService {
           existingUser.salt
         );
 
-        if (isValidUser) {
+        if (isValidUser && existingUser) {
           const token = await generateTokenSignature(payload);
 
           return { id: existingUser.id, token };
@@ -98,7 +98,6 @@ class UserService implements IUserService {
   }
 
   async UpdateUserProfile(id: number, payload: IEditProfilePayload) {
-    console.log(payload, id);
     try {
       const updatedUser = await this._repo.UpdateUserInfo(id, payload);
 

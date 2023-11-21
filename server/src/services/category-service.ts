@@ -7,6 +7,7 @@ interface ICategoryService {
 
 class CategoryService implements ICategoryService {
   readonly _repo;
+  
   constructor() {
     this._repo = new CategoryRepository();
   }
