@@ -12,6 +12,7 @@ router.use(ApiMiddleware);
 router.get("/", ingredientController.getAllIngredients.bind(ingredientController))
 router.get("/:id", ingredientController.getSelectedIngredients.bind(ingredientController))
 router.post("/", ingredientController.createIngredient.bind(ingredientController))
+router.post("/bulk", ingredientController.bulkCreateIngredients.bind(ingredientController))
 router.patch("/:id", ingredientController.updateIngredients.bind(ingredientController))
 router.delete("/:id", ingredientController.deleteIngredients.bind(ingredientController))
 

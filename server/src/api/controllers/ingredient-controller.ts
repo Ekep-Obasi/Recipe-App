@@ -14,6 +14,21 @@ class IngredientController implements IIngredientController {
     this._service = new IngredientService();
   }
 
+  async bulkCreateIngredients(req: Request, res: Response, next: NextFunction) {
+    try {
+      const payload = <ICreateIngredient[]>req.body;
+
+      const ingredients = await this._service.BulkCreateIngredients(payload);
+
+      res.send({
+        statusCode: 200,
+        data: ingredients,
+      });
+    } catch (err) {
+      next(err);
+    }
+  }
+
   async getAllIngredients(req: Request, res: Response, next: NextFunction) {
     try {
       const ingredients = await this._service.GetAllIngredients();

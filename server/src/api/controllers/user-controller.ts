@@ -33,6 +33,7 @@ class UserController implements IUserController {
       next(err);
     }
   }
+  
   async loginUser(req: Request, res: Response, next: NextFunction) {
     const payload = <ILoginUserPayload>req.body;
     try {

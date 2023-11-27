@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Classic Cocktails",
+    "description": "A collection of timeless cocktails that have stood the test of time, such as the Old Fashioned, the Martini, and the Margarita."
+  },
+  {
+    "name": "Sours",
+    "description": "Cocktails characterized by a sour flavor profile, typically made with a citrus base, such as the Whiskey Sour, the Daiquiri, and the Pisco Sour."
+  },
+  {
+    "name": "Highballs",
+    "description": "Tall, refreshing cocktails made with a spirit and a mixer, such as the Gin and Tonic, the Vodka Soda, and the Paloma."
+  },
+  {
+    "name": "Fizzes",
+    "description": "Sparkling cocktails with a frothy and effervescent texture, often made with egg whites or citrus juice, such as the Ramos Gin Fizz, the French 75, and the Mimosa."
+  },
+  {
+    "name": "Tiki Cocktails",
+    "description": "Exotic cocktails with tropical flavors, often featuring rum, pineapple juice, and coconut, such as the Mai Tai, the Piña Colada, and the Zombie."
+  },
+  {
+    "name": "Shooters",
+    "description": "Small, strong cocktails meant to be consumed quickly, such as the Tequila Sunrise, the Kamikaze, and the Flaming Dr. Pepper."
+  },
+  {
+    "name": "Apéritifs",
+    "description": "Bitter or bittersweet pre-dinner cocktails that stimulate the appetite, such as the Campari and Soda, the Aperol Spritz, and the Dubonnet."
+  },
+  {
+    "name": "Digestifs",
+    "description": "After-dinner cocktails that aid in digestion, often featuring spirits with a strong herbal or bitter flavor, such as the Brandy Alexander, the Grasshopper, and the Fernet Branca."
+  },
+  {
+    "name": "Hot Cocktails",
+    "description": "Warm and comforting cocktails perfect for cold weather, such as the Hot Toddy, the Irish Coffee, and the Mulled Wine."
+  },
+  {
+    "name": "Frozen Cocktails",
+    "description": "Blended cocktails with a smooth and refreshing texture, such as the Piña Colada, the Strawberry Daiquiri, and the Margarita."
+  },
+  {
+    "name": "Mocktails",
+    "description": "Non-alcoholic cocktails that mimic the flavors and presentation of traditional cocktails, offering a delicious alternative for those who abstain from alcohol."
+  },
+  {
+    "name": "Specialty Cocktails",
+    "description": "A diverse category encompassing a wide range of unique and innovative cocktails, often incorporating unconventional ingredients or techniques."
+  }
+]

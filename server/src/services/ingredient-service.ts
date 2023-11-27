@@ -14,6 +14,16 @@ class IngredientService implements IIngredientService {
     this._repo = new IngredientRepository();
   }
 
+  async BulkCreateIngredients(payload: ICreateIngredient[]) {
+    try {
+      const ingredients = this._repo.BulkCreateCategories(payload);
+
+      return ingredients;
+    } catch {
+      throw new APIError();
+    }
+  }
+
   async CreateIngredient(payload: ICreateIngredient) {
     try {
       const ingredient = await this._repo.CreateIngredient(payload);

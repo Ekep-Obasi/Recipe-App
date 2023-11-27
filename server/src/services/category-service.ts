@@ -7,9 +7,19 @@ interface ICategoryService {
 
 class CategoryService implements ICategoryService {
   readonly _repo;
-  
+
   constructor() {
     this._repo = new CategoryRepository();
+  }
+
+  async BulkCreateCategories(payload: ICreateCategory[]) {
+    try {
+      const categories = await this._repo.BulkCreateCategories(payload);
+
+      return categories;
+    } catch {
+      throw new Error("An error occured while R/W the db");
+    }
   }
 
   async createCategory(data: ICreateCategory) {

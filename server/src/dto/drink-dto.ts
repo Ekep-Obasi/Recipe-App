@@ -5,7 +5,18 @@ export type ICreateDrink = Omit<
   "glasses" | "ingredients" | "categories"
 >;
 
-export type ICreateDrinkPayload = Omit<ICreateDrink, "id">;
+export type ICreateDrinkPayload = {
+  name: string;
+  description: string;
+  imageURL: string;
+  recipe: string;
+  userId: number;
+  isAlcoholic: boolean;
+  price: string;
+  likes: number;
+  categoryIds: number[];
+  ingredientIds: number[]
+};
 
 export type IUpdateDrink = Omit<ICreateDrink, "id" | "userId">;
 

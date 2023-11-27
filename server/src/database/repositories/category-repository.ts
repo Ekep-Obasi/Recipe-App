@@ -7,6 +7,16 @@ import { Drink } from "../models";
 class CategoryRepository {
   readonly _model = CategoryModel;
 
+  async BulkCreateCategories(payload: ICreateCategory[]) {
+    try {
+      const categories = await this._model.bulkCreate(payload);
+
+      return categories;
+    } catch {
+      throw new APIError(500, "INTERNAL_ERROR", "failed to create category");
+    }
+  }
+
   async CreateCategory(payload: ICreateCategory) {
     try {
       const category = await this._model.create({ ...payload } as any);

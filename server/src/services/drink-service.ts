@@ -17,6 +17,16 @@ class DrinkService implements IDrinkService {
     this._repo = new DrinkRepository();
   }
 
+  async BulkCreateDrinks(payload: ICreateDrinkPayload[]) {
+    try {
+      const drinks = await this._repo.BulkCreateDrinks(payload);
+
+      return drinks;
+    } catch {
+      throw new APIError();
+    }
+  }
+
   async CreateDrink(payload: ICreateDrinkPayload) {
     try {
       const drink = await this._repo.CreateDrink(payload);

@@ -1,0 +1,130 @@
+[
+  {
+    "name": "Vodka",
+    "description": "A neutral grain spirit, often used as a base for cocktails due to its mild flavor."
+  },
+  {
+    "name": "Gin",
+    "description": "A distilled spirit flavored with juniper berries, commonly used in cocktails like martinis and gin and tonics."
+  },
+  {
+    "name": "Rum",
+    "description": "A distilled spirit produced from sugarcane molasses, often used in cocktails like daiquiris and mojitos."
+  },
+  {
+    "name": "Tequila",
+    "description": "A distilled spirit made from the fermented juice of the blue agave plant, typically used in margaritas and palomas."
+  },
+  {
+    "name": "Whiskey",
+    "description": "A distilled spirit made from fermented grain mash, often aged in oak barrels, and used in cocktails like Manhattans and whiskey sours."
+  },
+  {
+    "name": "Triple Sec",
+    "description": "An orange liqueur used in cocktails like Margaritas and Singapore Slings."
+  },
+  {
+    "name": "Cointreau",
+    "description": "Another orange liqueur, similar to Triple Sec, but with a slightly sweeter flavor."
+  },
+  {
+    "name": "Amaretto",
+    "description": "An almond-flavored liqueur used in cocktails like the Amaretto Sour and the Disaronno Fizz."
+  },
+  {
+    "name": "Baileys Irish Cream",
+    "description": "A liqueur made with Irish whiskey, cream, and chocolate, often served on its own or in cocktails."
+  },
+  {
+    "name": "Kahlúa",
+    "description": "A coffee liqueur used in cocktails like the Black Russian and the B-52."
+  },
+  {
+    "name": "Tonic Water",
+    "description": "A carbonated water with a quinine-based flavor, commonly used with gin."
+  },
+  {
+    "name": "Soda Water",
+    "description": "Plain carbonated water, often used as a mixer in cocktails."
+  },
+  {
+    "name": "Orange Juice",
+    "description": "A citrus juice commonly used in cocktails, such as the Screwdriver and the Mimosa."
+  },
+  {
+    "name": "Grapefruit Juice",
+    "description": "A citrus juice with a tart flavor, often used in cocktails like the Paloma and the Salty Dog."
+  },
+  {
+    "name": "Cranberry Juice",
+    "description": "A tart and tangy berry juice, used in cocktails like the Cosmopolitan and the Cape Codder."
+  },
+  {
+    "name": "Pineapple Juice",
+    "description": "A tropical juice with a sweet and tart flavor, often used in cocktails like the Piña Colada and the Zombie."
+  },
+  {
+    "name": "Simple Syrup",
+    "description": "A sweetener made with equal parts sugar and water, commonly used in cocktails."
+  },
+  {
+    "name": "Grenadine",
+    "description": "A pomegranate syrup with a sweet and tart flavor, often used in cocktails like the Shirley Temple and the Tequila Sunrise."
+  },
+  {
+    "name": "Honey Syrup",
+    "description": "A sweetener made with honey and water, adding a unique flavor to cocktails."
+  },
+  {
+    "name": "Angostura Bitters",
+    "description": "A concentrated botanical extract with a complex flavor profile, used in small amounts to add complexity and depth to cocktails."
+  },
+  {
+    "name": "Milk",
+    "description": "Used in cocktails like the White Russian and the Milk Punch, adding a creamy texture."
+  },
+  {
+    "name": "Cream",
+    "description": "Used in cocktails like the Brandy Alexander and the Irish Coffee, adding a rich and creamy texture."
+  },
+  {
+    "name": "Eggs",
+    "description": "Used in cocktails like the Ramos Gin Fizz and the Pisco Sour, adding a frothy and rich texture."
+  },
+  {
+    "name": "Cinnamon",
+    "description": "A warm spice commonly used in seasonal cocktails, such as hot toddies and egg nog."
+  },
+  {
+    "name": "Nutmeg",
+    "description": "A warm spice often used in eggnog and other seasonal cocktails."
+  },
+  {
+    "name": "Cloves",
+    "description": "A warm spice with a pungent aroma, often used in holiday cocktails like mulled wine and spiced cider."
+  },
+  {
+    "name": "Mint",
+    "description": "A fresh herb with a cooling and refreshing flavor, commonly used in cocktails like the Mint Julep and the Mojito."
+  },
+  {
+    "name": "Basil",
+    "description": "A fresh herb with a sweet and savory flavor, often used in cocktails like the Basil Gimlet and the Cucumber Basil Spritz."
+  },
+  {
+    "name": "Rosemary",
+    "description": "A fresh herb with a woody and pine-like flavor, sometimes used in savory cocktails like the Bloody Mary and the Greyhound."
+  },
+  {
+    "name": "Berries",
+    "description": "A variety of berries, such as strawberries, raspberries, and blueberries, are often used as garnishes or flavorings in cocktails."
+  },
+  {
+    "name": "Citrus Slices",
+    "description": "Thin slices of citrus fruits, such as oranges, lemons, and limes, are commonly used as garnishes in cocktails."
+  },
+  {
+    "name": "Cherries",
+    "description": "Maraschino cherries are a popular garnish for cocktails, adding a touch of sweetness and color."
+  }
+]

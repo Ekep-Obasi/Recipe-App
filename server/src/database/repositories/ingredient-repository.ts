@@ -7,6 +7,20 @@ import { Drink, Ingredient as IngredientModel } from "../models";
 class IngredientRepository {
   readonly _model = IngredientModel;
 
+  async BulkCreateCategories(payload: ICreateIngredient[]) {
+    try {
+      const ingredients = await this._model.bulkCreate(payload);
+
+      return ingredients;
+    } catch {
+      throw new APIError(
+        500,
+        "INTERNAL_ERROR",
+        "failed to create ingredients"
+      );
+    }
+  }
+
   async GetAllIngredients() {
     try {
       const ingredients = await this._model.findAll({ include: [Drink] });

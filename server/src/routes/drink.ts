@@ -16,6 +16,7 @@ router.use(ApiMiddleware);
 router.post("/like/:id", drinkCategory.likeDrink.bind(drinkCategory));
 router.use(ImageUploadMiddleware);
 router.post("/", drinkCategory.createDrink.bind(drinkCategory));
+router.post("/bulk", drinkCategory.bulkCreateDrinks.bind(drinkCategory));
 router.patch("/:id", drinkCategory.updateDrink.bind(drinkCategory));
 router.put("/:id", drinkCategory.resetDrink.bind(drinkCategory));
 router.delete("/:id", drinkCategory.deleteDrink.bind(drinkCategory));

@@ -14,6 +14,21 @@ class CategoryController implements ICategoryController {
     this._service = new CategoryService();
   }
 
+  async bulkCreateCategories(req: Request, res: Response, next: NextFunction) {
+    try {
+      const payload = req.body;
+
+      const categories = await this._service.BulkCreateCategories(payload);
+
+      res.send({
+        statusCode: 200,
+        data: categories,
+      });
+    } catch (err) {
+      next(err);
+    }
+  }
+
   async createCategory(req: Request, res: Response, next: NextFunction) {
     try {
       const newCategory = <ICreateCategory>req.body;

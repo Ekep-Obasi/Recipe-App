@@ -1,11 +1,19 @@
 import { Drink } from "../../domains/drink";
 import {
+  ICreateDrink,
   ICreateDrinkPayload,
   IPutDrinkPayload,
   IUpdateDrinkPayload,
 } from "../../dto/drink-dto";
 import { APIError } from "../../helpers/errors/app-error";
-import { Category, Drink as DrinkModel, Glass, Ingredient } from "../models";
+import {
+  Category,
+  DrinkCategory,
+  DrinkIngredient,
+  Drink as DrinkModel,
+  Glass,
+  Ingredient,
+} from "../models";
 
 interface IDrinkRepository {
   _model: DrinkModel;
@@ -13,6 +21,38 @@ interface IDrinkRepository {
 
 class DrinkRepository {
   readonly _model = DrinkModel;
+  readonly _cdModel = DrinkCategory;
+  readonly _diModel = DrinkIngredient;
+
+  async BulkCreateDrinks(payload: ICreateDrinkPayload[]) {
+    const drinks = Promise.all(
+      payload.map(
+        async ({ categoryIds, ingredientIds, ...payload }) =>
+          await this._model.create(payload).then(async (drink) => {
+            const c = categoryIds.map((id) => ({
+              drinkId: drink.id,
+              categoryId: id,
+            }));
+
+            const i = categoryIds.map((id) => ({
+              drinkId: drink.id,
+              categoryId: id,
+            }));
+
+            await this._cdModel.bulkCreate(c);
+            await this._diModel.bulkCreate(i);
+
+            return drink;
+          })
+      )
+    )
+      .then((res) => res)
+      .catch(() => {
+        throw new APIError();
+      });
+
+    return drinks;
+  }
 
   async CreateDrink(drinkData: ICreateDrinkPayload) {
     try {

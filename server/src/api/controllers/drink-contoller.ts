@@ -22,6 +22,35 @@ class DrinkController implements IDrinkController {
     this._userService = new UserService();
   }
 
+  async bulkCreateDrinks(req: Request, res: Response, next: NextFunction) {
+    try {
+      const payload = <ICreateDrinkPayload[]>req.body;
+
+      const { email } = req.user;
+
+      const user = await this._userService._repo.FindOneUser({ email });
+
+      if (!user) {
+        const err = new APIError(403, "NOT_FOUND", "user not found");
+        next(err);
+      }
+
+      const data = payload.map(({ userId, ...others }) => ({
+        ...others,
+        userId: user?.id as number,
+      }));
+
+      const drinks = await this._service.BulkCreateDrinks(data);
+
+      res.send({
+        statusCode: 200,
+        data: drinks,
+      });
+    } catch (err) {
+      next(err);
+    }
+  }
+
   async createDrink(req: Request, res: Response, next: NextFunction) {
     try {
       const payload = <ICreateDrinkPayload>req.body;

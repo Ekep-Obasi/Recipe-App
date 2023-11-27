@@ -1,6 +1,6 @@
 import { Category } from "./category";
 import { Glass } from "./glass";
-import { Ingredient } from "./ingredient";
+import Ingredient from "./ingredient";
 
 export type Drink = {
   id: number;

@@ -1,0 +1,123 @@
+[
+  {
+    "name": "Screwdriver",
+    "description": "A refreshing combination of vodka and orange juice, perfect for brunch or a casual gathering.",
+    "imageURL": "1700540742577-mojito-recipe-580x754.jpg",
+    "recipe": "Combine vodka and orange juice in a glass filled with ice. Stir gently and garnish with an orange slice.",
+    "isAlcoholic": true,
+    "price": 120,
+    "likes": 0,
+    "categoryIds": [3],
+    "ingredientIds": [1, 13]
+  },
+  {
+    "name": "Mimosa",
+    "description": "A bubbly and elegant cocktail made with sparkling wine and orange juice, often served for brunch or special occasions.",
+    "imageURL": "1700540742577-mojito-recipe-580x754.jpg",
+    "recipe": "Combine equal parts sparkling wine and orange juice in a champagne flute. Garnish with an orange slice.",
+    "isAlcoholic": true,
+    "price": 140,
+    "likes": 0,
+    "categoryIds": [4],
+    "ingredientIds": [13]
+  },
+  {
+    "name": "Piña Colada",
+    "description": "A tropical delight made with rum, pineapple juice, and cream of coconut, perfect for a taste of paradise.",
+    "imageURL": "1700540742577-mojito-recipe-580x754.jpg",
+    "recipe": "Combine rum, pineapple juice, and cream of coconut in a blender with ice. Blend until smooth and frothy. Pour into a hurricane glass and garnish with a pineapple wedge and a cherry.",
+    "isAlcoholic": true,
+    "price": 160,
+    "likes": 0,
+    "categoryIds": [5, 10],
+    "ingredientIds": [3, 16]
+  },
+  {
+    "name": "Margarita",
+    "description": "A classic and refreshing cocktail made with tequila, lime juice, and orange liqueur, often served with a salt rim.",
+    "imageURL": "1700540742577-mojito-recipe-580x754.jpg",
+    "recipe": "Rub the rim of a margarita glass with a lime wedge and dip it in salt. Combine tequila, lime juice, and orange liqueur in a shaker with ice. Shake until well chilled and strain into the prepared glass.",
+    "isAlcoholic": true,
+    "price": 140,
+    "likes": 0,
+    "categoryIds": [1, 3],
+    "ingredientIds": [4, 6]
+  },
+  {
+    "name": "Cosmopolitan",
+    "description": "A sophisticated and glamorous cocktail made with vodka, cranberry juice, lime juice, and Cointreau, often served in a martini glass.",
+    "imageURL": "1700540742577-mojito-recipe-580x754.jpg",
+    "recipe": "Combine vodka, cranberry juice, lime juice, and Cointreau in a shaker with ice. Shake well and strain into a chilled martini glass. Garnish with a lime wedge or a cranberry.",
+    "isAlcoholic": true,
+    "price": 180,
+    "likes": 0,
+    "categoryIds": [2, 11],
+    "ingredientIds": [1, 15, 6]
+  },
+  {
+    "name": "Mojito",
+    "description": "A refreshing and minty cocktail made with rum, mint leaves, lime juice, sugar, and soda water, often served in a tall glass.",
+    "imageURL": "1700540742577-mojito-recipe-580x754.jpg",
+    "recipe": "Muddle mint leaves, lime juice, and sugar in a highball glass. Add rum and ice, and top with soda water. Stir gently and garnish with a sprig of mint and a lime wedge.",
+    "isAlcoholic": true,
+    "price": 150,
+    "likes": 0,
+    "categoryIds": [3],
+    "ingredientIds": [3, 13]
+  },
+  {
+    "name": "Daiquiri",
+    "description": "A simple and classic cocktail made with rum, lime juice, and sugar, often served in a coupe glass.",
+    "imageURL": "1700540742577-mojito-recipe-580x754.jpg",
+    "recipe": "Combine rum, lime juice, and sugar in a shaker with ice. Shake well and strain into a chilled coupe glass. Garnish with a lime wedge.",
+    "isAlcoholic": true,
+    "price": 140,
+    "likes": 0,
+    "categoryIds": [2, 1],
+    "ingredientIds": [3, 13]
+  },
+  {
+    "name": "Amaretto Sour",
+    "description": "A sweet and nutty cocktail made with amaretto, almond liqueur, lemon juice, and egg white, often served in a rocks glass.",
+    "imageURL": "1700540742577-mojito-recipe-580x754.jpg",
+    "recipe": "Combine amaretto, almond liqueur, lemon juice, and egg white in a shaker with ice. Shake vigorously until frothy. Strain into a chilled rocks glass.",
+    "isAlcoholic": true,
+    "price": 160,
+    "likes": 0,
+    "categoryIds": [2],
+    "ingredientIds": [8, 17]
+  },
+  {
+    "name": "Cuba Libre",
+    "description": "A classic and refreshing cocktail made with rum, cola, and lime juice, often served with a lime wedge.",
+    "imageURL": "1700540742577-mojito-recipe-580x754.jpg",
+    "recipe": "Combine rum, cola, and lime juice in a highball glass filled with ice. Stir gently and garnish with a lime wedge.",
+    "isAlcoholic": true,
+    "price": 130,
+    "likes": 0,
+    "categoryIds": [3],
+    "ingredientIds": [3, 15]
+  },
+  {
+    "name": "Tequila Sunrise",
+    "description": "A layered cocktail made with tequila, orange juice, and grenadine, creating a beautiful sunrise effect.",
+    "imageURL": "1700540742577-mojito-recipe-580x754.jpg",
+    "recipe": "Pour grenadine into a highball glass. Slowly pour orange juice over the grenadine, allowing it to settle at the bottom. Slowly pour tequila over the orange juice, allowing it to float on top. Garnish with an orange slice.",
+    "isAlcoholic": true,
+    "price": 140,
+    "likes": 0,
+    "categoryIds": [6],
+    "ingredientIds": [4, 13, 18]
+  },
+  {
+    "name": "Kamikaze",
+    "description": "A tart and refreshing cocktail made with vodka, lime juice, and triple sec, often served in a coupe glass.",
+    "imageURL": "1700540742577-mojito-recipe-580x754.jpg",
+    "recipe": "Combine vodka, lime juice, and triple sec in a shaker with ice. Shake well and strain into a chilled coupe glass. Garnish with a lime wedge.",
+    "isAlcoholic": true,
+    "price": 120,
+    "likes": 0,
+    "categoryIds": [6],
+    "ingredientIds": [1, 13, 6]
+  }
+]
