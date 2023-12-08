@@ -11,67 +11,67 @@ import {
   PrimaryKey,
   Table,
   UpdatedAt,
-} from "sequelize-typescript";
-import Category from "./category";
-import User from "./user";
-import DrinkCategory from "./drink-category";
-import Ingredient from "./ingredient";
-import DrinkIngredient from "./drink-ingredient";
-import DrinkGlass from "./drink-glass";
-import Glass from "./glass";
+} from 'sequelize-typescript'
+import Category from './category'
+import User from './user'
+import DrinkCategory from './drink-category'
+import Ingredient from './ingredient'
+import DrinkIngredient from './drink-ingredient'
+import DrinkGlass from './drink-glass'
+import Glass from './glass'
 
 @Table({
-  tableName: "drinks",
+  tableName: 'drinks',
   timestamps: true,
 })
 class Drink extends Model {
   @PrimaryKey
   @AutoIncrement
   @Column(DataType.INTEGER)
-  id: number;
+  id: number
 
   @Column(DataType.CHAR(255))
-  name: string;
+  name: string
 
   @Column(DataType.TEXT)
-  description: string;
+  description: string
 
   @Column(DataType.CHAR(255))
-  imageURL: string;
+  imageURL: string
 
   @Column(DataType.TEXT)
-  recipe: string;
+  recipe: string
 
   @Column(DataType.INTEGER)
-  likes: number;
+  likes: number
 
   @Column(DataType.BOOLEAN)
-  isAlcoholic: boolean;
+  isAlcoholic: boolean
 
   @ForeignKey(() => User)
   @Column(DataType.INTEGER)
-  userId: number;
+  userId: number
 
   @BelongsTo(() => User)
-  user: User;
+  user: User
 
   @BelongsToMany(() => Category, () => DrinkCategory)
-  categories: Category[];
+  categories: Category[]
 
   @BelongsToMany(() => Ingredient, () => DrinkIngredient)
-  ingredients: Ingredient[];
+  ingredients: Ingredient[]
 
   @BelongsToMany(() => Glass, () => DrinkGlass)
-  glasses: Glass[];
+  glasses: Glass[]
 
   @CreatedAt
-  createdAt: Date;
+  createdAt: Date
 
   @UpdatedAt
-  updatedAt: Date;
+  updatedAt: Date
 
   @DeletedAt
-  deletedAt: Date;
+  deletedAt: Date
 }
 
-export default Drink;
+export default Drink

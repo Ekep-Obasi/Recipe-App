@@ -1,50 +1,45 @@
-import winston, { transports } from "winston";
-import { AppError } from "./app-error";
-import { Request, Response, NextFunction } from "express";
+import winston, { transports } from 'winston'
+import { AppError } from './app-error'
+import { Request, Response, NextFunction } from 'express'
 
 const LogErrors = winston.createLogger({
-  transports: [new transports.File({ filename: "app-error.log" })],
-});
+  transports: [new transports.File({ filename: 'app-error.log' })],
+})
 
 class ErrorLogger {
   async logError(err: Error): Promise<boolean> {
     LogErrors.log({
       private: true,
-      level: "error",
+      level: 'error',
       message: `${new Date()}-${JSON.stringify(err)}`,
-    });
-    return false;
+    })
+    return false
   }
 
   isAppError(error: Error): boolean {
     if (error instanceof AppError) {
-      return true;
+      return true
     } else {
-      return false;
+      return false
     }
   }
 }
 
-const ErrorHandler = async (
-  err: AppError,
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  const errorLogger = new ErrorLogger();
+const ErrorHandler = async (err: AppError, req: Request, res: Response, next: NextFunction) => {
+  const errorLogger = new ErrorLogger()
 
-  process.on("uncaughtException", (reason: Error, promise: Promise<any>) => {
-    console.error(reason, "UNHANDLED");
-    throw reason;
-  });
+  process.on('uncaughtException', (reason: Error, promise: Promise<any>) => {
+    console.error(reason, 'UNHANDLED')
+    throw reason
+  })
 
-  process.on("uncaughtException", (error: Error) => {
-    errorLogger.logError(error);
+  process.on('uncaughtException', (error: Error) => {
+    errorLogger.logError(error)
     if (errorLogger.isAppError(err)) {
     }
-  });
+  })
 
-  await errorLogger.logError(err);
+  await errorLogger.logError(err)
   if (errorLogger.isAppError(err)) {
     if (err.stack && process.env.NODE_DEV === 'dev') {
       return res.status(err.statusCode).json({
@@ -53,7 +48,7 @@ const ErrorHandler = async (
         error: {
           message: err.stack,
         },
-      });
+      })
     }
     return res.status(err.statusCode).json({
       errorCode: err.statusCode,
@@ -61,17 +56,17 @@ const ErrorHandler = async (
       error: {
         message: err.message,
       },
-    });
+    })
   }
 
-  next();
+  next()
   return res.send({
     errorCode: 500,
-    errorType: "INTERNAL_ERROR",
+    errorType: 'INTERNAL_ERROR',
     error: {
       message: err.message,
     },
-  });
-};
+  })
+}
 
-export default ErrorHandler;
+export default ErrorHandler

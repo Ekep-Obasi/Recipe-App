@@ -1,234 +1,218 @@
-import { NextFunction, Request, Response } from "express";
+import { NextFunction, Request, Response } from 'express'
 import {
   IEditProfilePayload,
   ILoginUserPayload,
   IPutUserPayload,
   IResetPasswordPayload,
   ISignUpPayload,
-} from "../../dto/user-dto";
-import { APIError } from "../../helpers/errors/app-error";
-import UserService from "../../services/user-service";
+} from '../../dto/user-dto'
+import { APIError } from '../../helpers/errors/app-error'
+import UserService from '../../services/user-service'
 
 interface IUserController {
-  _service: UserService;
+  _service: UserService
 }
 
 class UserController implements IUserController {
-  readonly _service;
+  readonly _service
 
   constructor() {
-    this._service = new UserService();
+    this._service = new UserService()
   }
 
   async signUpUser(req: Request, res: Response, next: NextFunction) {
-    const userData = <ISignUpPayload>req.body;
+    const userData = <ISignUpPayload>req.body
     try {
-      const user = await this._service.SignUp(userData);
+      const user = await this._service.SignUp(userData)
 
       res.send({
         statusCode: 200,
         data: user,
-      });
+      })
     } catch (err) {
-      next(err);
+      next(err)
     }
   }
-  
+
   async loginUser(req: Request, res: Response, next: NextFunction) {
-    const payload = <ILoginUserPayload>req.body;
+    const payload = <ILoginUserPayload>req.body
     try {
-      const response = await this._service.LoginUser(payload);
+      const response = await this._service.LoginUser(payload)
 
       res.send({
         statusCode: 200,
         data: response,
-      });
+      })
     } catch (err) {
-      next(err);
+      next(err)
     }
   }
 
   async editUserProfile(req: Request, res: Response, next: NextFunction) {
-    const id = +req.params.id;
+    const id = +req.params.id
 
-    const payload = <IEditProfilePayload>req.body;
+    const payload = <IEditProfilePayload>req.body
 
     if (!id) {
-      const err = new APIError(
-        400,
-        "BAD_REQUEST",
-        "invalid url param id required"
-      );
-      next(err);
+      const err = new APIError(400, 'BAD_REQUEST', 'invalid url param id required')
+      next(err)
     }
 
     try {
-      const updatedUser = await this._service.UpdateUserProfile(id, payload);
+      const updatedUser = await this._service.UpdateUserProfile(id, payload)
 
       res.send({
         statusCode: 200,
         data: updatedUser,
-      });
+      })
     } catch (err) {
-      next(err);
+      next(err)
     }
   }
 
   async deleteUser(req: Request, res: Response, next: NextFunction) {
-    const id = +req.params.id;
+    const id = +req.params.id
 
     if (!id) {
-      const err = new APIError(
-        400,
-        "BAD_REQUEST",
-        "invalid url param id required"
-      );
-      next(err);
+      const err = new APIError(400, 'BAD_REQUEST', 'invalid url param id required')
+      next(err)
     }
 
     try {
-      await this._service.DeleteUserProfile(id);
+      await this._service.DeleteUserProfile(id)
 
       res.send({
         statusCode: 200,
-        data: "Operation Successful",
-      });
+        data: 'Operation Successful',
+      })
     } catch (err) {
-      next(err);
+      next(err)
     }
   }
 
   async resetUserInfo(req: Request, res: Response, next: NextFunction) {
     try {
-      const payload = <IPutUserPayload>req.body;
+      const payload = <IPutUserPayload>req.body
 
-      const id = +req.params.id;
+      const id = +req.params.id
 
       if (!id) {
-        const err = new APIError(
-          400,
-          "BAD_REQUEST",
-          "invalid url param id required"
-        );
-        next(err);
+        const err = new APIError(400, 'BAD_REQUEST', 'invalid url param id required')
+        next(err)
       }
 
-      const user = await this._service.ResetUserProfile(id, payload);
+      const user = await this._service.ResetUserProfile(id, payload)
 
       res.send({
         statusCode: 200,
         data: user,
-      });
+      })
     } catch (err) {
-      next(err);
+      next(err)
     }
   }
 
   async subscribeToApi(req: Request, res: Response, next: NextFunction) {
-    const user = req.user;
+    const user = req.user
 
     try {
-      const updatedUser = await this._service.SubsribeToApi(user.email);
+      const updatedUser = await this._service.SubsribeToApi(user.email)
 
       res.send({
         statusCode: 200,
         data: { apiKey: updatedUser?.apiKey },
-      });
+      })
     } catch (err) {
-      next(err);
+      next(err)
     }
   }
 
   async becomeAdminUser(req: Request, res: Response, next: NextFunction) {
-    const user = req.user;
+    const user = req.user
 
     try {
-      const updatedUser = await this._service.BecomeAdminUser(user.email);
+      const updatedUser = await this._service.BecomeAdminUser(user.email)
 
       res.send({
         statusCode: 200,
         data: updatedUser,
-      });
+      })
     } catch (err) {
-      next(err);
+      next(err)
     }
   }
 
   async getAllUsers(req: Request, res: Response, next: NextFunction) {
     try {
-      const users = await this._service.GetAllUsers();
+      const users = await this._service.GetAllUsers()
 
       res.send({
         statusCode: 200,
         data: users,
-      });
+      })
     } catch (err) {
-      next(err);
+      next(err)
     }
   }
 
   async getUserById(req: Request, res: Response, next: NextFunction) {
-    const id = +req.params.id;
+    const id = +req.params.id
 
     if (!id) {
-      const err = new APIError(
-        400,
-        "BAD_REQUEST",
-        "invalid url param id required"
-      );
-      next(err);
+      const err = new APIError(400, 'BAD_REQUEST', 'invalid url param id required')
+      next(err)
     }
 
     try {
-      const user = await this._service.GetUserByID(id);
+      const user = await this._service.GetUserByID(id)
 
       res.send({
         statusCode: 200,
         data: user,
-      });
+      })
     } catch (err) {
-      next(err);
+      next(err)
     }
   }
 
   async listUserDrinks(req: Request, res: Response, next: NextFunction) {
-    const { email } = req.user;
+    const { email } = req.user
 
     const existingUser = await this._service._repo.FindOneUser({
       email,
-    });
+    })
 
     if (!existingUser && existingUser === null) {
-      const err = new APIError();
-      return next(err);
+      const err = new APIError()
+      return next(err)
     }
 
     try {
-      const user = await this._service.ListUserDrinks(existingUser.id);
+      const user = await this._service.ListUserDrinks(existingUser.id)
 
       res.send({
         statusCode: 200,
         data: user,
-      });
+      })
     } catch (err) {
-      next(err);
+      next(err)
     }
   }
 
   async resetPassword(req: Request, res: Response, next: NextFunction) {
-    const payload = <IResetPasswordPayload>req.body;
+    const payload = <IResetPasswordPayload>req.body
 
     try {
-      const updatedUser = await this._service.ResetPassword(payload);
+      const updatedUser = await this._service.ResetPassword(payload)
 
       res.send({
         statusCode: 200,
         data: updatedUser,
-      });
+      })
     } catch (err) {
-      next(err);
+      next(err)
     }
   }
 }
 
-export default UserController;
+export default UserController

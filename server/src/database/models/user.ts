@@ -11,58 +11,58 @@ import {
   Unique,
   Is,
   DataType,
-} from "sequelize-typescript";
-import Drink from "./drink";
-import { UserRoles, emailRegex, phoneNumberRegex } from "../../constants";
+} from 'sequelize-typescript'
+import Drink from './drink'
+import { UserRoles, emailRegex, phoneNumberRegex } from '../../constants'
 
 @Table({
-  tableName: "users",
+  tableName: 'users',
   timestamps: true,
 })
 class User extends Model {
   @PrimaryKey
   @AutoIncrement
   @Column(DataType.INTEGER)
-  id: number;
+  id: number
 
   @Column(DataType.CHAR(255))
-  firstName: string;
+  firstName: string
 
   @Column(DataType.CHAR(255))
-  lastName: string;
+  lastName: string
 
   @Is(emailRegex)
   @Unique
   @Column(DataType.CHAR(255))
-  email: string;
+  email: string
 
   @Column(DataType.CHAR(255))
-  password: string;
+  password: string
 
   @Is(phoneNumberRegex)
   @Column(DataType.CHAR(255))
-  phoneNumber: string;
+  phoneNumber: string
 
   @Column(DataType.CHAR(255))
-  apiKey: string;
+  apiKey: string
 
   @Column(DataType.CHAR(50))
-  salt: string;
+  salt: string
 
   @Column(DataType.ENUM({ values: UserRoles }))
-  role: string;
+  role: string
 
   @HasMany(() => Drink)
-  drinks: Drink[];
+  drinks: Drink[]
 
   @CreatedAt
-  createdAt: Date;
+  createdAt: Date
 
   @UpdatedAt
-  updatedAt: Date;
+  updatedAt: Date
 
   @DeletedAt
-  deletedAt: Date;
+  deletedAt: Date
 }
 
-export default User;
+export default User

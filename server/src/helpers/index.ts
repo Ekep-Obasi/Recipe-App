@@ -1,12 +1,12 @@
-import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from 'uuid'
 
 export function FormatData(data: unknown) {
   if (data) {
-    return data;
+    return data
   }
-  return null;
+  return null
 }
 
 export function generateApiKey() {
-  return uuidv4();
+  return uuidv4()
 }

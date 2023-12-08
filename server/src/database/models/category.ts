@@ -9,37 +9,37 @@ import {
   AutoIncrement,
   DataType,
   BelongsToMany,
-} from "sequelize-typescript";
-import Drink from "./drink";
-import DrinkCategory from "./drink-category";
+} from 'sequelize-typescript'
+import Drink from './drink'
+import DrinkCategory from './drink-category'
 
 @Table({
-  tableName: "categories",
+  tableName: 'categories',
   timestamps: true,
 })
 class Category extends Model {
   @PrimaryKey
   @AutoIncrement
   @Column(DataType.INTEGER)
-  id: number;
+  id: number
 
   @Column(DataType.CHAR(255))
-  name: string;
+  name: string
 
   @Column(DataType.TEXT)
-  description: string;
+  description: string
 
   @BelongsToMany(() => Drink, () => DrinkCategory)
-  drinks: Drink[];
+  drinks: Drink[]
 
   @CreatedAt
-  createdAt: Date;
+  createdAt: Date
 
   @UpdatedAt
-  updatedAt: Date;
+  updatedAt: Date
 
   @DeletedAt
-  deletedAt: Date;
+  deletedAt: Date
 }
 
-export default Category;
+export default Category

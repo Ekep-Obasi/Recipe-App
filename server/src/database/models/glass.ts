@@ -8,33 +8,33 @@ import {
   PrimaryKey,
   AutoIncrement,
   DataType,
-} from "sequelize-typescript";
-import { GlassSizes } from "../../constants";
+} from 'sequelize-typescript'
+import { GlassSizes } from '../../constants'
 
 @Table({
-  tableName: "glasses",
+  tableName: 'glasses',
   timestamps: true,
 })
 class Glass extends Model {
   @PrimaryKey
   @AutoIncrement
   @Column(DataType.INTEGER)
-  id: number;
+  id: number
 
   @Column(DataType.ENUM({ values: GlassSizes }))
-  size: string;
+  size: string
 
   @Column(DataType.CHAR(100))
-  description: string;
+  description: string
 
   @CreatedAt
-  createdAt: Date;
+  createdAt: Date
 
   @UpdatedAt
-  updatedAt: Date;
+  updatedAt: Date
 
   @DeletedAt
-  deletedAt: Date;
+  deletedAt: Date
 }
 
-export default Glass;
+export default Glass

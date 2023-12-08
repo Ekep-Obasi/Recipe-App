@@ -7,35 +7,35 @@ import {
   Model,
   PrimaryKey,
   UpdatedAt,
-} from "sequelize-typescript";
-import { ForeignKey, Table } from "sequelize-typescript";
-import Drink from "./drink";
-import Ingredient from "./ingredient";
+} from 'sequelize-typescript'
+import { ForeignKey, Table } from 'sequelize-typescript'
+import Drink from './drink'
+import Ingredient from './ingredient'
 
 @Table({
-  tableName: "drinks_ingredients",
+  tableName: 'drinks_ingredients',
   timestamps: true,
 })
 class DrinkIngredient extends Model {
   @PrimaryKey
   @AutoIncrement
   @Column(DataType.INTEGER)
-  id: number;
+  id: number
 
   @ForeignKey(() => Drink)
-  drinkId: number;
+  drinkId: number
 
   @ForeignKey(() => Ingredient)
-  ingredientId: number;
+  ingredientId: number
 
   @CreatedAt
-  createdAt: Date;
+  createdAt: Date
 
   @UpdatedAt
-  updatedAt: Date;
+  updatedAt: Date
 
   @DeletedAt
-  deletedAt: Date;
+  deletedAt: Date
 }
 
-export default DrinkIngredient;
+export default DrinkIngredient

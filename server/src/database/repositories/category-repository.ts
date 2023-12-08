@@ -1,46 +1,46 @@
-import CategoryModel from "../models/category";
-import { ICreateCategory } from "../../dto/category-dto";
-import { APIError } from "../../helpers/errors/app-error";
-import { Category } from "../../domains/category";
-import { Drink } from "../models";
+import CategoryModel from '../models/category'
+import { ICreateCategory } from '../../dto/category-dto'
+import { APIError } from '../../helpers/errors/app-error'
+import { Category } from '../../domains/category'
+import { Drink } from '../models'
 
 class CategoryRepository {
-  readonly _model = CategoryModel;
+  readonly _model = CategoryModel
 
   async BulkCreateCategories(payload: ICreateCategory[]) {
     try {
-      const categories = await this._model.bulkCreate(payload);
+      const categories = await this._model.bulkCreate(payload)
 
-      return categories;
+      return categories
     } catch {
-      throw new APIError(500, "INTERNAL_ERROR", "failed to create category");
+      throw new APIError(500, 'INTERNAL_ERROR', 'failed to create category')
     }
   }
 
   async CreateCategory(payload: ICreateCategory) {
     try {
-      const category = await this._model.create({ ...payload } as any);
-      return category;
+      const category = await this._model.create({ ...payload } as any)
+      return category
     } catch {
-      throw new APIError(500, "INTERNAL_ERROR", "failed to create category");
+      throw new APIError(500, 'INTERNAL_ERROR', 'failed to create category')
     }
   }
 
   async GetAllCategories() {
     try {
-      const categories = await this._model.findAll({ include: [Drink] });
-      return categories;
+      const categories = await this._model.findAll({ include: [Drink] })
+      return categories
     } catch {
-      throw new APIError(500, "INTERNAL_ERROR", "failed to get all categories");
+      throw new APIError(500, 'INTERNAL_ERROR', 'failed to get all categories')
     }
   }
 
   async FindOneCategory(id: string) {
     try {
-      const categories = await this._model.findOne({ where: { id } });
-      return categories;
+      const categories = await this._model.findOne({ where: { id } })
+      return categories
     } catch {
-      throw new APIError(500, "INTERNAL_ERROR", "failed to find category");
+      throw new APIError(500, 'INTERNAL_ERROR', 'failed to find category')
     }
   }
 
@@ -48,10 +48,10 @@ class CategoryRepository {
     try {
       const catgory = await this._model.update(payload, {
         where: { id: payload.id },
-      });
-      return catgory;
+      })
+      return catgory
     } catch {
-      throw new APIError(500, "INTERNAL_ERROR", "failed to update category");
+      throw new APIError(500, 'INTERNAL_ERROR', 'failed to update category')
     }
   }
 
@@ -59,21 +59,21 @@ class CategoryRepository {
     try {
       const catgory = await this._model.update(payload, {
         where: { id: payload.id },
-      });
-      return catgory;
+      })
+      return catgory
     } catch {
-      throw new APIError(500, "INTERNAL_ERROR", "failed to patch category");
+      throw new APIError(500, 'INTERNAL_ERROR', 'failed to patch category')
     }
   }
 
   async DeleteCategory(id: string) {
     try {
-      const category = await this._model.destroy({ where: { id } });
-      return category;
+      const category = await this._model.destroy({ where: { id } })
+      return category
     } catch {
-      throw new APIError(500, "INTERNAL_ERROR", "failed to delete category");
+      throw new APIError(500, 'INTERNAL_ERROR', 'failed to delete category')
     }
   }
 }
 
-export default CategoryRepository;
+export default CategoryRepository

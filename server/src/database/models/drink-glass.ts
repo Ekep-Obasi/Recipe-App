@@ -9,36 +9,36 @@ import {
   PrimaryKey,
   Table,
   UpdatedAt,
-} from "sequelize-typescript";
-import Glass from "./glass";
-import Drink from "./drink";
+} from 'sequelize-typescript'
+import Glass from './glass'
+import Drink from './drink'
 
 @Table({
-  tableName: "drinks_glasses",
+  tableName: 'drinks_glasses',
   timestamps: true,
 })
 class DrinkGlass extends Model {
   @PrimaryKey
   @AutoIncrement
   @Column(DataType.INTEGER)
-  id: number;
+  id: number
 
   @ForeignKey(() => Drink)
   @Column(DataType.INTEGER)
-  drinkId: number;
+  drinkId: number
 
   @ForeignKey(() => Glass)
   @Column(DataType.INTEGER)
-  glassId: number;
+  glassId: number
 
   @CreatedAt
-  createdAt: Date;
+  createdAt: Date
 
   @UpdatedAt
-  updatedAt: Date;
+  updatedAt: Date
 
   @DeletedAt
-  deletedAt: Date;
+  deletedAt: Date
 }
 
-export default DrinkGlass;
+export default DrinkGlass
